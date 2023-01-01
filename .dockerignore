@@ -1,0 +1,71 @@
+# flyctl launch added from .gitignore
+
+###> symfony/framework-bundle ###
+.env.local
+.env.local.php
+.env.*.local
+config\secrets\prod\prod.decrypt.private.php
+public\bundles
+var
+vendor
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+phpunit.xml
+**\.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+**\.phpunit.result.cache
+phpunit.xml
+###< symfony/phpunit-bridge ###
+
+# flyctl launch added from vendor\psr\container\.gitignore
+vendor\psr\container\**\composer.lock
+vendor\psr\container\**\composer.phar
+vendor\psr\container\vendor
+
+# flyctl launch added from vendor\psr\event-dispatcher\.gitignore
+vendor\psr\event-dispatcher\vendor
+vendor\psr\event-dispatcher\**\composer.lock
+
+# flyctl launch added from vendor\sebastian\resource-operations\.gitignore
+vendor\sebastian\resource-operations\.idea
+vendor\sebastian\resource-operations\.php_cs.cache
+vendor\sebastian\resource-operations\build\FunctionSignatureMap.php
+vendor\sebastian\resource-operations\composer.lock
+vendor\sebastian\resource-operations\vendor
+vendor\sebastian\resource-operations\.phpunit.result.cache
+
+# flyctl launch added from vendor\sebastian\version\.gitignore
+vendor\sebastian\version\.php_cs.cache
+vendor\sebastian\version\.idea
+
+# flyctl launch added from vendor\sensio\framework-extra-bundle\.gitignore
+vendor\sensio\framework-extra-bundle\vendor
+vendor\sensio\framework-extra-bundle\**\coverage
+vendor\sensio\framework-extra-bundle\tests\Fixtures\var
+vendor\sensio\framework-extra-bundle\**\phpunit.xml
+vendor\sensio\framework-extra-bundle\**\composer.lock
+vendor\sensio\framework-extra-bundle\.php_cs.cache
+vendor\sensio\framework-extra-bundle\**\.phpunit.result.cache
+
+# flyctl launch added from vendor\symfony\http-client-contracts\.gitignore
+vendor\symfony\http-client-contracts\**\vendor
+vendor\symfony\http-client-contracts\**\composer.lock
+vendor\symfony\http-client-contracts\**\phpunit.xml
+
+# flyctl launch added from vendor\symfony\monolog-bundle\.gitignore
+vendor\symfony\monolog-bundle\**\vendor
+vendor\symfony\monolog-bundle\**\composer.phar
+vendor\symfony\monolog-bundle\**\composer.lock
+vendor\symfony\monolog-bundle\**\phpunit.xml
+vendor\symfony\monolog-bundle\**\.phpunit.result.cache
+
+# flyctl launch added from vendor\twig\extra-bundle\.gitignore
+vendor\twig\extra-bundle\**\vendor
+vendor\twig\extra-bundle\**\var
+vendor\twig\extra-bundle\**\composer.lock
+vendor\twig\extra-bundle\**\phpunit.xml
+vendor\twig\extra-bundle\**\.phpunit.result.cache
+fly.toml
