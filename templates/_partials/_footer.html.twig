@@ -1,5 +1,27 @@
 <footer class="container-fluid bg-light">
-	<div class="row">
-		
+	<div>
+		<h1>Nos horaires d'ouvertures</h1>
+		  <div class="col-12">
+                <h1>Mon restaurant</h1>
+            </div>
+
+            {% for OpeningTime in dayMethode %}
+			<div class="col-4">
+				{{OpeningTime.day}}
+			</div>
+
+			<div class="col-4">
+				{{OpeningTime.HourIn|date('H:i:s')}}
+			</div>
+
+			<div class="col-4">
+				{{OpeningTime.HourOut|date('H:i:s')}}
+			</div>
+                
+            {% endfor %}
+
+            <div class="col-12">
+                {{dump()}}
+             </div>
 	</div>
 </footer>
