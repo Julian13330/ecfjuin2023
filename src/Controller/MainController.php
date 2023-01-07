@@ -9,11 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/main', name: 'main')]
+    #[Route('/', name: 'main')]
     public function index(OpeningTimeRepository $openingTimeRepository): Response
     {
-        //return $this->render('main/index.html.twig', [
-            return $this->render('_partials/_footer.html.twig', [
+            return $this->render('main/index.html.twig', [
             'dayMethode' => $openingTimeRepository->findAll()
         ]);
     }
