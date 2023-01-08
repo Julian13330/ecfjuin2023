@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\OpeningTimeRepository;
 use App\Entity\Users;
 use App\Form\RegistrationFormType;
 use App\Security\UserAuthenticator;
@@ -17,7 +18,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RegistrationController extends AbstractController
 {
     #[Route('/inscription', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager,OpeningTimeRepository $openingTimeRepository ): Response
     {
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -44,6 +45,7 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render('registration/register.html.twig', [
+            'dayMethode' => $openingTimeRepository->findAll(),
             'registrationForm' => $form->createView(),
         ]);
     }
