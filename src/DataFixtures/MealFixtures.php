@@ -53,7 +53,7 @@ class MealFixtures extends Fixture
          $dorade->setTitle('Le filet de Dorade');
          $dorade->setDescription('Risotto aux champignons, sauces aux girolles et au foie gras');
          $dorade->setPrice(32,00);
-         $dorade->setPhoto('');
+         $dorade->setPhoto('https://pixabay.com/fr/photos/fruits-de-mer-homard-boston-homard-4265994/');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $dorade->setCategory($this->getReference(CategoryFixtures::CATEGORY_MER));
          $manager->persist($dorade);

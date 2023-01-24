@@ -24,7 +24,7 @@ class OpeningTime
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $hour_out = null;
-
+   
     #[ORM\ManyToOne(inversedBy: 'openingTimes')]
     private ?Users $users = null;
 
@@ -117,5 +117,10 @@ class OpeningTime
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getHourIn();
     }
 }
