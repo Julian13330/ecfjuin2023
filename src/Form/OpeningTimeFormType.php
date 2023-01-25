@@ -27,7 +27,7 @@ class OpeningTimeFormType extends AbstractType
                 'widget' => 'choice' ,
                 'label' => 'indiquez l\'heure de fermeture'
             ])
-            
+
         ;
     }
 
