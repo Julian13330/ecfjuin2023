@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\DataFixtures\CategoryFixtures;
+use App\DataFixtures\ImageFixtures;
 use App\Entity\Meal;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -16,9 +17,10 @@ class MealFixtures extends Fixture
          $accra->setTitle('Accras de Morue');
          $accra->setDescription('La recette familiale en provenance du Portugal');
          $accra->setPrice(14,00);
-         $accra->setPhoto('');
+         $accra->setPhoto('assets/uploads/dorade.jpg');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $accra->setCategory($this->getReference(CategoryFixtures::CATEGORY_ENTREE));
+         $accra->addImage($this->getReference(ImageFixtures::IMAGE_ENTREE));
          $manager->persist($accra);
 
          $panisse = new Meal();
@@ -28,6 +30,7 @@ class MealFixtures extends Fixture
          $panisse->setPhoto('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $panisse->setCategory($this->getReference(CategoryFixtures::CATEGORY_ENTREE));
+         $panisse->addImage($this->getReference(ImageFixtures::IMAGE_ENTREE));
          $manager->persist($panisse);
 
          $soupe = new Meal();
@@ -37,6 +40,7 @@ class MealFixtures extends Fixture
          $soupe->setPhoto('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $soupe->setCategory($this->getReference(CategoryFixtures::CATEGORY_ENTREE));
+         $soupe->addImage($this->getReference(ImageFixtures::IMAGE_ENTREE));
          $manager->persist($soupe);
 
          // Les plats mer
@@ -47,6 +51,7 @@ class MealFixtures extends Fixture
          $homard->setPhoto('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $homard->setCategory($this->getReference(CategoryFixtures::CATEGORY_MER));
+         $homard->addImage($this->getReference(ImageFixtures::IMAGE_MER));
          $manager->persist($homard);
 
          $dorade = new Meal();
@@ -56,6 +61,7 @@ class MealFixtures extends Fixture
          $dorade->setPhoto('https://pixabay.com/fr/photos/fruits-de-mer-homard-boston-homard-4265994/');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $dorade->setCategory($this->getReference(CategoryFixtures::CATEGORY_MER));
+         $dorade->addImage($this->getReference(ImageFixtures::IMAGE_MER));
          $manager->persist($dorade);
 
          // Les plats terre
@@ -66,6 +72,7 @@ class MealFixtures extends Fixture
          $entrecôte->setPhoto('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $entrecôte->setCategory($this->getReference(CategoryFixtures::CATEGORY_TERRE));
+         $entrecôte->addImage($this->getReference(ImageFixtures::IMAGE_TERRE));
          $manager->persist($entrecôte);
 
          $raviole = new Meal();
@@ -75,6 +82,7 @@ class MealFixtures extends Fixture
          $raviole->setPhoto('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $raviole->setCategory($this->getReference(CategoryFixtures::CATEGORY_TERRE));
+         $raviole->addImage($this->getReference(ImageFixtures::IMAGE_TERRE));
          $manager->persist($raviole);
 
          // Les desserts
@@ -85,6 +93,7 @@ class MealFixtures extends Fixture
          $chocolat->setPhoto('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $chocolat->setCategory($this->getReference(CategoryFixtures::CATEGORY_DESSERT));
+         $chocolat->addImage($this->getReference(ImageFixtures::IMAGE_DESSERT));
          $manager->persist($chocolat);
 
          $cafe = new Meal();
@@ -94,6 +103,7 @@ class MealFixtures extends Fixture
          $cafe->setPhoto('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $cafe->setCategory($this->getReference(CategoryFixtures::CATEGORY_DESSERT));
+         $cafe->addImage($this->getReference(ImageFixtures::IMAGE_DESSERT));
          $manager->persist($cafe);
 
         $manager->flush();

@@ -1,0 +1,12 @@
+{{ form_start(mealForm) }}
+<div class="row">
+    <div class="col-md-6">{{ form_row(mealForm.title)}}</div>
+    <div class="col-md-6">{{ form_row(mealForm.description)}}</div>
+    <div class="col-md-6">{{ form_row(mealForm.price)}}</div>
+    <div class="col-md-6">{{ form_row(mealForm.category)}}</div>
+    <div class="col-md-6">{{ form_row(mealForm.photo)}}</div>
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+
+</div>
+
+{{ form_end(mealForm) }}
