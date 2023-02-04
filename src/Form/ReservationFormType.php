@@ -24,7 +24,6 @@ class ReservationFormType extends AbstractType
            // ->add('is_service_full')
             ->add('meal_allergy')
            // ->add('users')
-            ->add('restaurant')
         ;
     }
 

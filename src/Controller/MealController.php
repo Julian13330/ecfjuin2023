@@ -16,7 +16,7 @@ class MealController extends AbstractController
     {
         return $this->render('carte/index.html.twig', [
             'dayMethode' => $openingTimeRepository->findAll(),
-            'mealMethode'=>$mealRepository->findAll()
+            'mealMethode'=>$mealRepository->findAll(),
         ]);
     }
 

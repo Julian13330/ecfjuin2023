@@ -17,7 +17,7 @@ class MealFixtures extends Fixture
          $accra->setTitle('Accras de Morue');
          $accra->setDescription('La recette familiale en provenance du Portugal');
          $accra->setPrice(14,00);
-         $accra->setPhoto('assets/uploads/dorade.jpg');
+         $accra->setPhoto('C:\Users\julia\AppData\Local\Temp\0b9ba2f85a1c96cb3a09d851a0c80173.png');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $accra->setCategory($this->getReference(CategoryFixtures::CATEGORY_ENTREE));
          $accra->addImage($this->getReference(ImageFixtures::IMAGE_ENTREE));
@@ -27,7 +27,7 @@ class MealFixtures extends Fixture
          $panisse->setTitle('Panisses marseillaises');
          $panisse->setDescription('Recette locale, végétarienne et sans gluten !');
          $panisse->setPrice(12,00);
-         $panisse->setPhoto('');
+         $panisse->setPhoto('C:\Users\julia\AppData\Local\Temp\872c60c949dcba81300fbeb5e77debe0.png');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $panisse->setCategory($this->getReference(CategoryFixtures::CATEGORY_ENTREE));
          $panisse->addImage($this->getReference(ImageFixtures::IMAGE_ENTREE));
@@ -37,7 +37,7 @@ class MealFixtures extends Fixture
          $soupe->setTitle('La soupe de poissons');
          $soupe->setDescription('Croutons,rouille,emmental et gousse d\'ail');
          $soupe->setPrice(14,00);
-         $soupe->setPhoto('');
+         $soupe->setPhoto('C:\Users\julia\AppData\Local\Temp\bc24b1df06d7ac0b98380b31e0c0a53f.png');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $soupe->setCategory($this->getReference(CategoryFixtures::CATEGORY_ENTREE));
          $soupe->addImage($this->getReference(ImageFixtures::IMAGE_ENTREE));
@@ -48,7 +48,7 @@ class MealFixtures extends Fixture
          $homard->setTitle('Les ravioles de Homard');
          $homard->setDescription('Pâte à raviole à l\'encre de seiches,sauce au beurre ');
          $homard->setPrice(36,00);
-         $homard->setPhoto('');
+         $homard->setPhoto('C:\Users\julia\AppData\Local\Temp\1359520a45e2b80b73f4aed9b9c71b62.png');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $homard->setCategory($this->getReference(CategoryFixtures::CATEGORY_MER));
          $homard->addImage($this->getReference(ImageFixtures::IMAGE_MER));

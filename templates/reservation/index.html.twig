@@ -3,15 +3,6 @@
 {% block title %}Hello ReservationController!{% endblock %}
 
 {% block body %}
-
-{{ form_start(reservationForm) }}
-<div class="row">
-    <div class="col-md-6">{{ form_row(reservationForm.name)}}</div>
-
-    <button type="submit" class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
-
-</div>
-
-{{ form_end(reservationForm) }}
+{% include "_partials/reservation/_form.html.twig" %}
 
 {% endblock %}

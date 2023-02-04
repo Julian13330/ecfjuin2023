@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class MealFormType extends AbstractType
 {
@@ -28,6 +29,13 @@ class MealFormType extends AbstractType
                 'label' => 'catégorie du plat',
                 'choice_label' => 'title'
             ])
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'image du plat',
+                'label_attr' => [
+                    'class' => 'form-label mt-4'
+                ]
+            ])
+            ->add('photo', FileType::class)
             ->add('image', FileType::class, [
                 'label' => false,
                 'multiple' => true,

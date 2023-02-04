@@ -1,0 +1,12 @@
+{{ form_start(reservationForm) }}
+<div class="row">
+    <div class="col-md-6">{{ form_row(reservationForm.name)}}</div>
+    <div class="col-md-6">{{ form_row(reservationForm.date)}}</div>
+    <div class="col-md-6">{{ form_row(reservationForm.time)}}</div>
+    <div class="col-md-6">{{ form_row(reservationForm.guest)}}</div>
+    <div class="col-md-6">{{ form_row(reservationForm.meal_allergy)}}</div>
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Réserver') }}</button>
+
+</div>
+
+{{ form_end(reservationForm) }}

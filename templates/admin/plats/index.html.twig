@@ -14,13 +14,20 @@
                         </div>
                         <div class="col-12">
                         {{Meal.title}}
+                        <a href={{'plats/73'}}><button class="btn btn-primary"> Modifier </button></a>
+                        <button type="submit" class="btn btn-danger">{{ button_label|default('Supprimer') }}</button>
                         </div>
-                        {% for image in Meal.Image %}
-                        <pre>
-                        {{dump(image)}}
-                        </pre>
                         {% endfor %}
+                        <div class="col-12">
+                            <a href={{""}}><button class="btn btn-primary"> Ajouter un plat </button></a>
+                        </div>
+                         <div class="carousel-inner">
+                        {% for photo in mealMethode %}
+                            <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}">
+                                <img src="{{ asset('assets/uploads/mini/300x300-') ~ photo }}" class="d-block w-100" alt="">
+                            </div>
+                        {% endfor %}
+                    </div>
                 </section>
         </main>
- {% endfor %}
 {% endblock %}

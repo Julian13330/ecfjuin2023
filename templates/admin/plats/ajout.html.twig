@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Administration des plats{% endblock %}
+
+{% block body %}
+    <h1> Administration des plats</h1>
+     {% include "_partials/plat/_form.html.twig" %} with {'button_label': 'Ajouter'} %}
+{% endblock %}
