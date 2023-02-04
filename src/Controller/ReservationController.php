@@ -20,7 +20,6 @@ class ReservationController extends AbstractController
         $reservationForm = $this->createForm(ReservationFormType::class, $reservation);
         $reservationForm->handleRequest($request);
 
-        $reservationForm->handleRequest($request);
         if ($reservationForm ->isSubmitted() && $reservationForm ->isValid()) {
             $openingTime = $reservationForm->getData();
 
@@ -30,7 +29,7 @@ class ReservationController extends AbstractController
 
             $this->addFlash('success', 'Réservation effectuée avec succès');
 
-        return $this->redirectToRoute('');
+        return $this->redirectToRoute('main');
     }
         return $this->render('reservation/index.html.twig', [
             'reservationForm' => $reservationForm->createView(),

@@ -21,7 +21,7 @@ class ReservationFormType extends AbstractType
                 'label' => 'indiquez l\'horaire de la réservation'
             ])
             ->add('guest')
-           // ->add('is_service_full')
+            ->add('is_service_full')
             ->add('meal_allergy')
            // ->add('users')
         ;

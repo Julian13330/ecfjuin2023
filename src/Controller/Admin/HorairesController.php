@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 #[Route('/admin', name: 'admin_horaires_')]
 class HorairesController extends AbstractController
 {
-  #[Route('/jours', name: 'index')]
+  #[Route('/jours', name: 'index_horaires')]
     public function index(OpeningTimeRepository $openingTimeRepository): Response
     {
         return $this->render('admin/jours/index.html.twig', [
@@ -37,10 +37,8 @@ class HorairesController extends AbstractController
                 $EntityManager->persist($openingTime);
             }
             $EntityManager->flush();
-
-            return $this->redirect($this->generateUrl('menu_', ['id' =>$openingTime->getId()]));    
-
-           $this->addFlash('success', 'Horaire modifié avec succès');
+            $this->addFlash('success', 'Horaire modifié avec succès');
+            return $this->redirectToRoute('main');
     }
 
     return $this->render('admin/horaires/index.html.twig',[

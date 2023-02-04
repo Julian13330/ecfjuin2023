@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-12">
                         {{Meal.title}}
-                        <a href={{'plats/73'}}><button class="btn btn-primary"> Modifier </button></a>
+                        <a href={{'plats/{mealMethode.title}'}}><button class="btn btn-primary"> Modifier </button></a>
                         <button type="submit" class="btn btn-danger">{{ button_label|default('Supprimer') }}</button>
                         </div>
                         {% endfor %}
@@ -22,9 +22,9 @@
                             <a href={{""}}><button class="btn btn-primary"> Ajouter un plat </button></a>
                         </div>
                          <div class="carousel-inner">
-                        {% for photo in mealMethode %}
-                            <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}">
-                                <img src="{{ asset('assets/uploads/mini/300x300-') ~ photo }}" class="d-block w-100" alt="">
+                        {% for meal in mealMethode %}
+                            <div>
+                                <img src={{vich_uploader_asset(meal, 'imageFile')}}>
                             </div>
                         {% endfor %}
                     </div>
