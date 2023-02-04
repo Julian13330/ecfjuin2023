@@ -26,7 +26,6 @@ class Meal
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    
     #[Vich\UploadableField(mapping: 'plats_images', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
 
@@ -36,21 +35,15 @@ class Meal
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column(type: Types::BLOB)]
-    private $photo = null;
-
     #[ORM\ManyToOne(inversedBy: 'meals')]
     private ?Users $users = null;
 
     #[ORM\ManyToOne(inversedBy: 'meals')]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'meal', targetEntity: Image::class)]
-    private Collection $images;
-
     public function __construct()
     {
-        $this->images = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -91,16 +84,6 @@ class Meal
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
      */
-    public function setImageFile(?File $imageFile = null): void
-    {
-        $this->imageFile = $imageFile;
-
-        if (null !== $imageFile) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
-        }
-    }
 
     public function getImageFile(): ?File
     {
@@ -130,18 +113,6 @@ class Meal
         return $this;
     }
 
-    public function getPhoto()
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto($photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
     public function getUsers(): ?Users
     {
         return $this->users;
@@ -165,34 +136,5 @@ class Meal
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Image>
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setMeal($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getMeal() === $this) {
-                $image->setMeal(null);
-            }
-        }
-
-        return $this;
-    }
+   
 }

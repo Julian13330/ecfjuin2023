@@ -35,13 +35,6 @@ class MealFormType extends AbstractType
                     'class' => 'form-label mt-4'
                 ]
             ])
-            ->add('photo', FileType::class)
-            ->add('image', FileType::class, [
-                'label' => false,
-                'multiple' => true,
-                'mapped' => false,
-                'required' => false
-            ])
         ;
     }
 
