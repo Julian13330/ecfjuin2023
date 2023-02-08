@@ -3,17 +3,19 @@
 {% block title %} La carte du restaurant{% endblock %}
 
 {% block body %}
-    <h1> La carte !</h1>
-    {% for Meal in mealMethode %}
-		<div class="row">
-			<div class="col-md-3 col-sm-3">
-				{{Meal.title}}
-				{{Meal.description}}
+	<div class="container mx-auto">
+			<h1> La carte !</h1>
+			{% for Meal in mealMethode %}
+			<div class="row">
 				<div class="col-md-3 col-sm-3">
-					{{Meal.price}}€
+					{{Meal.title}}
+					{{Meal.description}}
+					<div class="col-md-3 col-sm-3">
+						{{Meal.price}}€
+					</div>
 				</div>
-			</div>
-		</div>   
+			</div>  
+	</div> 
 		
     {% endfor %}
 

@@ -3,7 +3,7 @@
 {% block title %} Administration des plats{% endblock %}
 
 {% block body %}
-    <main class="container">
+    <main class="container mx-auto">
                 <section class="row">
                         <div class="col-12">
                                 <h1>Administration des plats</h1>
@@ -14,19 +14,14 @@
                         </div>
                         <div class="col-12">
                         {{Meal.title}}
-                        <a href={{'plats/{mealMethode.title}'}}><button class="btn btn-primary"> Modifier </button></a>
+                        <a href="/admin/plats/{{Meal.id}}"><button class="btn btn-primary"> Modifier </button></a>
                         <button type="submit" class="btn btn-danger">{{ button_label|default('Supprimer') }}</button>
                         </div>
                         {% endfor %}
                         <div class="col-12">
-                            <a href={{""}}><button class="btn btn-primary"> Ajouter un plat </button></a>
+                            <a href="/admin/plats/ajout/{{23}}"><button class="btn btn-primary"> Ajouter un plat </button></a>
                         </div>
                          <div class="carousel-inner">
-                        {% for meal in mealMethode %}
-                            <div>
-                                <img src={{vich_uploader_asset(meal, 'imageFile')}}>
-                            </div>
-                        {% endfor %}
                     </div>
                 </section>
         </main>

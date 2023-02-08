@@ -17,8 +17,9 @@ class ReservationFormType extends AbstractType
             ->add('date')
             ->add('time',TimeType::class,[
                 'input' => 'datetime',
-                'widget' => 'choice' ,
+                'widget' => 'choice',
                 'label' => 'indiquez l\'horaire de la réservation'
+            
             ])
             ->add('guest')
             ->add('is_service_full')

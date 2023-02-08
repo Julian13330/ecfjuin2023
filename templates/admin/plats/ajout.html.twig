@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Administration des plats{% endblock %}
+{% block title %} Ajout d'un plat{% endblock %}
 
 {% block body %}
-    <h1> Ajouter un plat</h1>
-     {% include "_partials/plat/_form.html.twig" %} with {'button_label': 'Ajouter'} %}
+    <div class="container mx-auto">
+        <h1> Ajouter un plat</h1>
+        {% include "_partials/plat/_formadd.html.twig" %}
+    </div>
 {% endblock %}
