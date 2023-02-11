@@ -3,8 +3,37 @@
 {% block title %}Hello ReservationController!{% endblock %}
 
 {% block body %}
+
+{{ form_start(reservationForm) }}
 <div class="container mx-auto">
-  {% include "_partials/reservation/_form.html.twig" %}
+  <div class="row" id="form">
+      <div class="col-md-12">{{ form_row(reservationForm.name)}}</div>
+      <div class="col-md-12">{{ form_row(reservationForm.time)}}</div>
+      <div class="col-md-12" id="guest">{{ form_row(reservationForm.guest)}}</div>
+      <div class="col-md-12">{{ form_row(reservationForm.meal_allergy)}}</div>
+      <div class="col-md-12">{{ form_row(reservationForm.is_service_full)}}</div>
+      <button type="submit" class="btn btn-primary">{{ button_label|default('Réserver') }}</button>
+  </div>
 </div>
+
+{{ form_end(reservationForm) }}
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+  const guest = document.getElementById('guest');
+  const form = document.getElementById('form');
+  const log = document.getElementById('log');
+
+  console.log('vive les ninjas');
+
+  function logform(event) {
+    if (guest > 2) {
+      alert('La réservation pas possible! ')
+    }
+  }
+    
+</script>
 
 {% endblock %}

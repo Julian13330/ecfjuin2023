@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Reservation;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,15 +15,16 @@ class ReservationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('date')
-            ->add('time',TimeType::class,[
+            ->add('name',TextType::class, ['label' => 'Nom de la réservation'])
+            ->add('time',DateTimeType::class,[
                 'input' => 'datetime',
                 'widget' => 'choice',
-                'label' => 'indiquez l\'horaire de la réservation'
-            
+                'date_widget' => 'single_text',
+                'label' => 'indiquez l\'horaire de la réservation',
+                'hours' => [18,19,20,21,22,23,],
+                'minutes' => [0,30]
             ])
-            ->add('guest')
+            ->add('guest', IntegerType::class, ['label' => 'Nombre de personnes', 'attr' => ['min' => 1, 'max' => 10]])
             ->add('is_service_full')
             ->add('meal_allergy')
            // ->add('users')
