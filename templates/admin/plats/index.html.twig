@@ -2,7 +2,7 @@
 
 {% block title %} Administration des plats{% endblock %}
 
-{% block body %}
+{#{% block body %}
     <main class="container mx-auto">
                 <section class="row">
                         <div class="col-12">
@@ -25,4 +25,37 @@
                     </div>
                 </section>
         </main>
+{% endblock %}#}
+
+{% block body %}
+<main>
+	<table class="generic-table meal-list">
+                <h1>Administration des plats</h1>
+                <tbody>
+                {% for meal in mealMethode %}
+                        <tr>
+                                <td>
+                                        <img  src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
+                                </td>
+                                <td>
+                                        <p>{{ meal.category.title }}</p>
+                                        <strong>{{ meal.title }}</strong>
+                                        <p>{{ meal.description }}</p>
+                                </td>
+                                <td class="number"><strong>{{ meal.price | number_format(2, ',', ' ') }} €</strong>
+                                </td>
+                                <td>
+                                <a href="/admin/plats/{{meal.id}}"><button class="btn btn-primary"> Modifier </button></a>
+                                </td>
+                                <td>
+                                <button type="submit" class="btn btn-danger">{{ button_label|default('Supprimer') }}</button>
+                                </td>
+                        </tr>
+                        {% endfor %}
+                </tbody>
+        </table>
+        <div class="col-12 text-center">
+                <a href="/admin/plats/ajout/{{4}}"><button class="btn btn-primary"> Ajouter un plat </button></a>
+        </div>
+</main>
 {% endblock %}

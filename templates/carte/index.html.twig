@@ -3,20 +3,23 @@
 {% block title %} La carte du restaurant{% endblock %}
 
 {% block body %}
-	<div class="container mx-auto">
-			<h1> La carte !</h1>
-			{% for Meal in mealMethode %}
-			<div class="row">
-				<div class="col-md-3 col-sm-3">
-					{{Meal.title}}
-					{{Meal.description}}
-					<div class="col-md-3 col-sm-3">
-						{{Meal.price}}€
-					</div>
-				</div>
-			</div>  
-	</div> 
-		
-    {% endfor %}
-
+	<table class="generic-table meal-list">
+         <h1>La carte du restaurant</h1>
+         <tbody>
+         {% for meal in mealMethode %}
+             <tr>
+                 <td>
+                     <img  src="{{ vich_uploader_asset(meal, 'imageFile') }}"
+                          alt="{{ asset(meal.title) }}">
+                 </td>
+                 <td>
+								 		 <p>{{ meal.category.title }}</p>
+                     <strong>{{ meal.title }}</strong>
+                     <p>{{ meal.description }}</p>
+                 </td>
+                 <td class="number"><strong>{{ meal.price | number_format(2, ',', ' ') }} €</strong></td>
+             </tr>
+         {% endfor %}
+         </tbody>
+    </table>
 {% endblock %}

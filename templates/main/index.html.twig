@@ -3,15 +3,11 @@
 {% block body %}
     <main class="container">
         <section class="row">
-           Hello world
+           Nos plats 
         </section>
-        {#{% for meal in mealMethode %}
-                    <img src={{vich_uploader_asset(meal, 'imageFile')}}>
-        {% endfor %} #}
         {% for meal in mealMethode %}
-            <div class="item {%if loop.index == 1%} active {%endif%}">
-            <!-- le reste des images si sup à 1-->
-                <img src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+            <div class="row">
+                <img class="d-block w-25" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
             </div>
         {% endfor %}
         <div>
