@@ -3,7 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Reservation;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -16,17 +17,26 @@ class ReservationFormType extends AbstractType
     {
         $builder
             ->add('name',TextType::class, ['label' => 'Nom de la réservation'])
-            ->add('time',DateTimeType::class,[
-                'input' => 'datetime',
-                'widget' => 'choice',
-                'date_widget' => 'single_text',
-                'label' => 'indiquez l\'horaire de la réservation',
-                'hours' => [18,19,20,21,22,23,],
-                'minutes' => [0,30]
+            ->add('time',DateType::class, [
+                    'label' => 'Date',
+                    'model_timezone' => 'Europe/Paris',
+                    'data' => new \DateTime(),
             ])
-            ->add('guest', IntegerType::class, ['label' => 'Nombre de personnes', 'attr' => ['min' => 1, 'max' => 10]])
-            ->add('is_service_full')
-            ->add('meal_allergy')
+            ->add('hour', TimeType::class,
+            [
+                'label' => 'Heure',
+                'input_format' => 'H:m',
+                'input'  => 'datetime',
+                'widget' => 'choice',
+                'hours' => ['12', '13', '14', '19', '20', '21'],
+                'minutes' => ['00', '15','30','45']
+            ]
+        )
+            ->add('nbrguest', IntegerType::class, ['label' => 'Nombre de personnes', 'attr' => ['min' => 1, 'max' => 20]])
+            ->add('meal_allergy',TextType::class, [
+                'required' => false,
+                'label' => 'Avez-vous des allergies alimentaires ?'
+                ])
            // ->add('users')
         ;
     }

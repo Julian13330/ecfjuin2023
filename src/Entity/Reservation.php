@@ -22,11 +22,11 @@ class Reservation
     private ?\DateTimeInterface $time = null;
 
     #[ORM\Column]
-    #[Assert\Range(max:15)]
-    private ?int $guest = null;
+    #[Assert\Range(max:20)]
+    private ?int $nbrGuest = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $heure = null;
+    private ?\DateTimeInterface $hour = null;
 
     #[ORM\Column(length: 100)]
     private ?string $meal_allergy = null;
@@ -66,14 +66,26 @@ class Reservation
         return $this;
     }
 
-    public function getGuest(): ?int
+    public function getNbrGuest(): ?int
     {
-        return $this->guest;
+        return $this->nbrGuest;
     }
 
-    public function setGuest(int $guest): self
+    public function setNbrGuest(int $nbrGuest): self
     {
-        $this->guest = $guest;
+        $this->nbrGuest = $nbrGuest;
+
+        return $this;
+    }
+
+    public function getHour(): ?\DateTimeInterface
+    {
+        return $this->hour;
+    }
+
+    public function setHour(\DateTimeInterface $hour): self
+    {
+        $this->hour = $hour;
 
         return $this;
     }

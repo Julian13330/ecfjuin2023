@@ -3,48 +3,13 @@
 {% block title %}Réservation{% endblock %}
 
 {% block body %}
-<h1 class="text-center">Réservez votre table</h1>
-{{ form_start(reservationForm, { 'attr' : { 'class': 'generic-form' } }) }}
-  <div class="container mx-auto">
-    <ul>
-      <li>
-          {{ form_label(reservationForm.name)}}
-          {{ form_widget(reservationForm.name)}}
-      </li>
-      <li>
-          {{ form_label(reservationForm.time)}}
-          {{ form_widget(reservationForm.time)}}
-      </li>
-      <li>
-          {{ form_label(reservationForm.guest)}}
-          {{ form_widget(reservationForm.guest)}}
-      </li>
-      <li>
-          {{ form_label(reservationForm.meal_allergy)}}
-          {{ form_widget(reservationForm.meal_allergy)}}
-      </li>
-          <button type="submit" class="btn btn-primary">{{ button_label|default('Réserver') }}</button>
-    </ul>
-  </div>
-
-{{ form_end(reservationForm) }}
+<div class="container mx-auto">
+    <h1> Administration des plats</h1>
+     {% include "_partials/reservation/_form.html.twig" %}
+    </div>
 
 {% endblock %}
 
 {% block javascripts %}
-<script>
-  const guest = document.getElementById('guest');
-  const form = document.getElementById('form');
-  const log = document.getElementById('log');
-
-  console.log('vive les ninjas');
-
-  function logform(event) {
-    if (guest > 2) {
-      alert('La réservation pas possible! ')
-    }
-  }
-    
-</script>
 
 {% endblock %}

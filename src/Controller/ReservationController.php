@@ -4,36 +4,82 @@ namespace App\Controller;
 
 use App\Form\ReservationFormType;
 use App\Entity\Reservation;
+use App\Entity\SeatMax;
+use App\Repository\ReservationRepository;
 use App\Repository\OpeningTimeRepository;
+use App\Repository\SeatMaxRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class ReservationController extends AbstractController
 {
     #[Route('/reservation', name: 'app_reservation')]
-    public function index(Request $request,OpeningTimeRepository $openingTimeRepository,EntityManagerInterface $em): Response
+    public function index(Request $request,ManagerRegistry $managerRegistry,OpeningTimeRepository $openingTimeRepository,ReservationRepository $reservationRepository,
+    seatMaxRepository $seatMaxRepository): Response
     {
+        // Récupère le gestionnaire d'entité
+        $entityManager = $managerRegistry->getManager();
+
+        // Récupère le nombre de couverts maximum fixé en base de données dans la table PlacesMax
+        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '2']); // Méthode pour récupérer l'unique ligne de la table.
+        $maxReservationPerDayValue = $maxReservationPerDay->getNbrSeatMax();
+
+        // Création d'une nouvelle instance de l'entité Reservations
         $reservation = new Reservation();
-        $reservationForm = $this->createForm(ReservationFormType::class, $reservation);
-        $reservationForm->handleRequest($request);
+        $reservation->setTime(new \DateTime()); // Permet de mettre une date par défaut au formulaire de réservation
+        $reservation->setHour(new \DateTime());// Permet de mettre une heure par défaut au formulaire de réservation
 
-        if ($reservationForm ->isSubmitted() && $reservationForm ->isValid()) {
-            $openingTime = $reservationForm->getData();
+        // Création du formulaire et liaison avec l'entité correspondante
+        $formResa = $this->createForm(ReservationFormType::class, $reservation);
 
-            // On stocke
-            $em->persist($openingTime);
-            $em->flush();
+         // Recuperation des données du formulaire
+         $formResa->handleRequest($request);
+         $data = $formResa->getData();
+         $reservationTime = $data->getTime();
+         $reservationHour = $data->getHour();
+         $nbrCouvertSelectionne = $data->getnbrGuest();
 
-            $this->addFlash('success', 'Réservation effectuée avec succès');
+         // Formatage de la date et l'heure pour qu'elle puisse être passée au custom QueryBuilder countNbrCouvertForDate()
+        $reservationTime = $reservationTime->format('Y-m-d');
+        $reservationHour = $reservationHour->format('H:m:s');
 
-        return $this->redirectToRoute('main');
-    }
+        // Recuperation du nombre de couverts à une date sélectionnée pour le service du midi
+        $nbrCouvertMidi = $reservationRepository->countNbrCouvertDateMidi($reservationTime, $reservationHour );
+
+        // Recuperation du nombre de couverts à une date sélectionnée pour le service du soir
+        $nbrCouvertSoir = $reservationRepository->countNbrCouvertDateSoir($reservationTime, $reservationHour);
+
+        // Vérifie si formulaire valide, et si assez de place à la date et l'heure sélectionnée
+        if ($formResa->isSubmitted()
+            && $formResa->isValid()
+            && $maxReservationPerDayValue >= ($nbrCouvertMidi + $nbrCouvertSelectionne)
+            && $maxReservationPerDayValue >= ($nbrCouvertSoir + $nbrCouvertSelectionne))
+        {
+            // Recuperation de l'email du client
+            //$mailUser = $this->getUserOrGuestIdentifier($security);
+            //$reservation->setClientEmail($mailUser);
+
+            // Enregistrement en base de données et affichage d'un message de confirmation
+            $entityManager->persist($reservation);
+            $entityManager->flush();
+            $this->addFlash('success', 'Merci, votre réservation a bien été prise en compte');
+            return $this->redirectToRoute('app_home');
+        }
+        // Sinon affiche un message d'erreur.
+        elseif ($maxReservationPerDayValue < ($nbrCouvertMidi + $nbrCouvertSelectionne) || $maxReservationPerDayValue < ($nbrCouvertSoir + $nbrCouvertSelectionne) ) {
+            $this->addFlash('full', 'Il n\'y a plus de place disponible à cette date');
+            return $this->redirectToRoute('main');
+        }
+        // On retourne le rendu twig auquel on passe les produits de la carte et le formulaire
         return $this->render('reservation/index.html.twig', [
-            'reservationForm' => $reservationForm->createView(),
-            'dayMethode' => $openingTimeRepository->findAll()
+            'dayMethode' => $openingTimeRepository->findAll(),
+            'formResa' => $formResa->createView()
         ]);
+
     }
 }

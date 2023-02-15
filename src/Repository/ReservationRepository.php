@@ -39,28 +39,54 @@ class ReservationRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Reservation[] Returns an array of Reservation objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+   * @return Reservation[] Returns an array of Reservation objects
+    */
+    public function findByExampleField($value): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('r.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
-//    public function findOneBySomeField($value): ?Reservation
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findOneBySomeField($value): ?Reservation
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    // Compte le nombre de couverts à une date donnée du midi
+    public function countNbrCouvertDateMidi(string $time, string $hour ): int
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->select('SUM(r.guest)')
+            ->where('r.time = :time')
+            ->andWhere('r.hour < :hour')
+            ->setParameter('time', $time)
+            ->setParameter('hour', $hour);
+
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
+
+    // Compte le nombre de couverts à une date donnée pour le service du soir
+    public function countNbrCouvertDateSoir(string $time, string $hour): int
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->select('SUM(r.nbrguest)')
+            ->where('r.time = :time')
+            ->andWhere('r.hour > :hour')
+            ->setParameter('time', $time)
+            ->setParameter('hour', $hour);
+
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
 }

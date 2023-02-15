@@ -3,7 +3,6 @@
 namespace App\DataFixtures;
 
 use App\Entity\OpeningTime;
-use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
