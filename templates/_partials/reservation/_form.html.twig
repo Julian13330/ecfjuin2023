@@ -1,12 +1,12 @@
-{{ form_start(reservationForm) }}
+{{ form_start(formResa) }}
 <div class="row">
-    <div class="col-md-6">{{ form_row(reservationForm.name)}}</div>
-    <div class="col-md-6">{{ form_row(reservationForm.time)}}</div>
-    <div class="col-md-6">{{ form_row(reservationForm.hour)}}</div>
-    <div class="col-md-6" id="guest">{{ form_row(reservationForm.guest)}}</div>
-    <div class="col-md-6">{{ form_row(reservationForm.meal_allergy)}}</div>
+    <div class="col-md-6">{{ form_row(formResa.name)}}</div>
+    <div class="col-md-6">{{ form_row(formResa.time)}}</div>
+    <div class="col-md-6">{{ form_row(formResa.hour)}}</div>
+    <div class="col-md-6">{{ form_row(formResa.nbrguest)}}</div>
+    <div class="col-md-6">{{ form_row(formResa.meal_allergy)}}</div>
     <button type="submit" class="btn btn-primary">{{ button_label|default('Réserver') }}</button>
 
 </div>
 
-{{ form_end(reservationForm) }}
+{{ form_end(formResa) }}

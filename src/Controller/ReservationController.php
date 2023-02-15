@@ -33,6 +33,7 @@ class ReservationController extends AbstractController
         $reservation = new Reservation();
         $reservation->setTime(new \DateTime()); // Permet de mettre une date par défaut au formulaire de réservation
         $reservation->setHour(new \DateTime());// Permet de mettre une heure par défaut au formulaire de réservation
+        
 
         // Création du formulaire et liaison avec l'entité correspondante
         $formResa = $this->createForm(ReservationFormType::class, $reservation);
@@ -68,12 +69,12 @@ class ReservationController extends AbstractController
             $entityManager->persist($reservation);
             $entityManager->flush();
             $this->addFlash('success', 'Merci, votre réservation a bien été prise en compte');
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('main');
         }
         // Sinon affiche un message d'erreur.
         elseif ($maxReservationPerDayValue < ($nbrCouvertMidi + $nbrCouvertSelectionne) || $maxReservationPerDayValue < ($nbrCouvertSoir + $nbrCouvertSelectionne) ) {
             $this->addFlash('full', 'Il n\'y a plus de place disponible à cette date');
-            return $this->redirectToRoute('main');
+            return $this->redirectToRoute('app_reservation');
         }
         // On retourne le rendu twig auquel on passe les produits de la carte et le formulaire
         return $this->render('reservation/index.html.twig', [

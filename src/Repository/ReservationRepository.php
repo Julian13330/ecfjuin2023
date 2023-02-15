@@ -68,7 +68,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function countNbrCouvertDateMidi(string $time, string $hour ): int
     {
         $qb = $this->createQueryBuilder('r')
-            ->select('SUM(r.guest)')
+            ->select('SUM(r.nbrGuest)')
             ->where('r.time = :time')
             ->andWhere('r.hour < :hour')
             ->setParameter('time', $time)
@@ -81,7 +81,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function countNbrCouvertDateSoir(string $time, string $hour): int
     {
         $qb = $this->createQueryBuilder('r')
-            ->select('SUM(r.nbrguest)')
+            ->select('SUM(r.nbrGuest)')
             ->where('r.time = :time')
             ->andWhere('r.hour > :hour')
             ->setParameter('time', $time)

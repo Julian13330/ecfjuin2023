@@ -22,7 +22,6 @@ class Reservation
     private ?\DateTimeInterface $time = null;
 
     #[ORM\Column]
-    #[Assert\Range(max:20)]
     private ?int $nbrGuest = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
