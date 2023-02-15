@@ -1,17 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <main class="container">
-        <section class="row">
-           Nos plats 
-        </section>
-        {% for meal in mealMethode %}
-            <div class="row">
-                <img class="d-block w-25" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+        <main class="container-fluid">
+        {# Création du carousel de plats #}
+            <h1>Voici nos plats savoureux<h1>
+            <div class="col-6">
+                <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-interval="false" data-pause="hover">
+                    <div class="carousel-inner">
+                    {% for meal in mealMethode %}
+                            <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}">
+                            <img class="d-block w-100" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                            <div class="col-md-12">{{meal.title}}</div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
-        {% endfor %}
-        <div>
-        <a href={{'reservation'}}><button class="btn btn-primary"> Réserver une table </button></a>
+        {# Bouton pour se rendre sur la page de réservation#}
+        <div class="position center">
+            <h2> Réserver vite votre table !<h2>
+            <button class="btn btn-success">Réservation</button>
         </div>
-    </main>
+        </main>
 {% endblock %}

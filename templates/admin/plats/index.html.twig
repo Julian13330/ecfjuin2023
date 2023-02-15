@@ -48,14 +48,15 @@
                                 <a href="/admin/plats/{{meal.id}}"><button class="btn btn-primary"> Modifier </button></a>
                                 </td>
                                 <td>
-                                <button type="submit" class="btn btn-danger">{{ button_label|default('Supprimer') }}</button>
+
+                                <a href="{{ path('admin_plats_delete', {id: meal.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ meal.id) }}" class="btn btn-warning">Supprimer</a>
                                 </td>
                         </tr>
                         {% endfor %}
                 </tbody>
         </table>
         <div class="col-12 text-center">
-                <a href="/admin/plats/ajout/{{4}}"><button class="btn btn-primary"> Ajouter un plat </button></a>
+                <a href="/admin/plats/ajout/{{1}}"><button class="btn btn-primary"> Ajouter un plat </button></a>
         </div>
 </main>
 {% endblock %}

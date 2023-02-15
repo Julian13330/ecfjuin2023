@@ -32,7 +32,8 @@ class MealFormType extends AbstractType
                 'label' => 'image du plat',
                 'label_attr' => [
                     'class' => 'form-label mt-4'
-                ]
+                ],
+                'required' => false
             ])
         ;
     }

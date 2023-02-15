@@ -25,8 +25,8 @@ class Reservation
     #[Assert\Range(max:15)]
     private ?int $guest = null;
 
-    #[ORM\Column]
-    private ?bool $is_service_full = null;
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
+    private ?\DateTimeInterface $heure = null;
 
     #[ORM\Column(length: 100)]
     private ?string $meal_allergy = null;
@@ -74,18 +74,6 @@ class Reservation
     public function setGuest(int $guest): self
     {
         $this->guest = $guest;
-
-        return $this;
-    }
-
-    public function isIsServiceFull(): ?bool
-    {
-        return $this->is_service_full;
-    }
-
-    public function setIsServiceFull(bool $is_service_full): self
-    {
-        $this->is_service_full = $is_service_full;
 
         return $this;
     }

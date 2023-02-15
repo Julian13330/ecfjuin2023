@@ -44,9 +44,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     'CURRENT_TIMESTAMP'])] 
     private $created_at;
 
-    #[ORM\ManyToMany(targetEntity: Allergy::class, mappedBy: 'users')]
-    private Collection $allergies;
-
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: Menu::class)]
     private Collection $menus;
 
@@ -59,9 +56,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: Reservation::class)]
     private Collection $reservations;
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $allergie = null;
+
     public function __construct()
     {
-        $this->allergies = new ArrayCollection();
         $this->menus = new ArrayCollection();
         $this->meals = new ArrayCollection();
         $this->openingTimes = new ArrayCollection();
@@ -187,32 +186,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Allergy>
-     */
-    public function getAllergies(): Collection
-    {
-        return $this->allergies;
-    }
-
-    public function addAllergy(Allergy $allergy): self
-    {
-        if (!$this->allergies->contains($allergy)) {
-            $this->allergies->add($allergy);
-            $allergy->addUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAllergy(Allergy $allergy): self
-    {
-        if ($this->allergies->removeElement($allergy)) {
-            $allergy->removeUser($this);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Menu>
@@ -330,6 +303,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
                 $reservation->setUsers(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAllergie(): ?string
+    {
+        return $this->allergie;
+    }
+
+    public function setAllergie(?string $allergie): self
+    {
+        $this->allergie = $allergie;
 
         return $this;
     }

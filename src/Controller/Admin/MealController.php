@@ -26,7 +26,7 @@ class MealController extends AbstractController
         ]);
     }
 
-   
+    // Ajouter un nouveau plat
     #[Route('/ajout/{id}', name: 'add')]
     public function ajout(MealRepository $mealRepository,Meal $meal,OpeningTimeRepository $openingTimeRepository, EntityManagerInterface $EntityManager,Request $request): Response
     {
@@ -58,6 +58,7 @@ class MealController extends AbstractController
             ]);
         }
 
+    // Modifier un plat
   #[Route('/{id}', name: 'edit')]
     public function edit(MealRepository $mealRepository,Meal $meal,OpeningTimeRepository $openingTimeRepository, EntityManagerInterface $EntityManager,Request $request): Response
     {   
@@ -80,6 +81,22 @@ class MealController extends AbstractController
 }
         return $this->render('admin/plats/edit.html.twig', [
             'mealForm' => $mealForm->createView(),
+            'dayMethode' => $openingTimeRepository->findAll(),
+            'mealMethode' => $mealRepository->findAll()
+        ]);
+    }
+
+    // Supprimer un plat
+    #[Route('suppression/{id}', name: 'delete')]
+    public function delete(MealRepository $mealRepository,OpeningTimeRepository $openingTimeRepository,Meal $meal,EntityManagerInterface $EntityManager,Request $request): Response
+    {
+        $EntityManager->remove($meal);
+        $EntityManager->flush();
+
+        $this->addFlash('success', 'Plat supprimé avec succès');
+        return $this->redirectToRoute('main');
+
+        return $this->render('admin/plats/index.html.twig', [
             'dayMethode' => $openingTimeRepository->findAll(),
             'mealMethode' => $mealRepository->findAll()
         ]);

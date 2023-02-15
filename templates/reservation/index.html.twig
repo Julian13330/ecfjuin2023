@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReservationController!{% endblock %}
+{% block title %}Réservation{% endblock %}
 
 {% block body %}
-
-{{ form_start(reservationForm) }}
-<div class="container mx-auto">
-  <div class="row" id="form">
-      <div class="col-md-12">{{ form_row(reservationForm.name)}}</div>
-      <div class="col-md-12">{{ form_row(reservationForm.time)}}</div>
-      <div class="col-md-12" id="guest">{{ form_row(reservationForm.guest)}}</div>
-      <div class="col-md-12">{{ form_row(reservationForm.meal_allergy)}}</div>
-      <div class="col-md-12">{{ form_row(reservationForm.is_service_full)}}</div>
-      <button type="submit" class="btn btn-primary">{{ button_label|default('Réserver') }}</button>
+<h1 class="text-center">Réservez votre table</h1>
+{{ form_start(reservationForm, { 'attr' : { 'class': 'generic-form' } }) }}
+  <div class="container mx-auto">
+    <ul>
+      <li>
+          {{ form_label(reservationForm.name)}}
+          {{ form_widget(reservationForm.name)}}
+      </li>
+      <li>
+          {{ form_label(reservationForm.time)}}
+          {{ form_widget(reservationForm.time)}}
+      </li>
+      <li>
+          {{ form_label(reservationForm.guest)}}
+          {{ form_widget(reservationForm.guest)}}
+      </li>
+      <li>
+          {{ form_label(reservationForm.meal_allergy)}}
+          {{ form_widget(reservationForm.meal_allergy)}}
+      </li>
+          <button type="submit" class="btn btn-primary">{{ button_label|default('Réserver') }}</button>
+    </ul>
   </div>
-</div>
 
 {{ form_end(reservationForm) }}
 
