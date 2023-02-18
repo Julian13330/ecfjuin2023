@@ -1,16 +1,31 @@
-<footer class="container-fluid bg-light">
-	<div class="row">
-			<div>
-        		<h2>Le Quai Antique : les horaires</h2>
-        	</div>
-            {% for OpeningTime in dayMethode %}
-			<div class="row">
-				<div class="col-md-3 col-sm-3">
-					{{OpeningTime.day}}
-					{{OpeningTime.HourIn|date('H:i')}} h -
-					{{OpeningTime.HourOut|date('H:i')}} h
-				</div>
-			</div>   
-            {% endfor %}
-	</div>
+<footer class="page-footer font-small blue pt-4 bg-primary text-light">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-4 mt-md-0 mt-3">
+                <h5 class="text-uppercase mb-4">LE QUAI ANTIQUE</h5>
+            </div>
+            <div class="col-md-4 mb-md-0 mb-3">
+                <h5 class="text-uppercase mb-4">Horaires</h5>
+                <ul class="list-unstyled d-flex flex-column align-items-middle">
+                    {% for OpeningTime in dayMethode %}
+                        {% if OpeningTime.open == true %}
+						    <li>
+								{{OpeningTime.day}}
+								{{OpeningTime.HourIn|date('H:i')}} h -
+								{{OpeningTime.HourOut|date('H:i')}} h
+							</li>
+                        {% else %}
+                        <li>{{OpeningTime.day}} : Fermé </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4 mb-md-0 mb-3">
+                <h5 class="text-uppercase mb-4">ADRESSE</h5>
+                <p>Le Quai Michant <br> 90 rue Pasteur, <br>69000 Lyon</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2022 Copyright : 
+    </div>
 </footer>

@@ -24,6 +24,9 @@ class OpeningTime
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $hour_out = null;
+
+    #[ORM\Column]
+    private ?bool $open = null;
    
     #[ORM\ManyToOne(inversedBy: 'openingTimes')]
     private ?Users $users = null;
@@ -73,6 +76,18 @@ class OpeningTime
     public function setHourOut(\DateTimeInterface $hour_out): self
     {
         $this->hour_out = $hour_out;
+
+        return $this;
+    }
+
+    public function isOpen(): ?bool
+    {
+        return $this->open;
+    }
+
+    public function setOpen(bool $open): self
+    {
+        $this->open = $open;
 
         return $this;
     }

@@ -16,6 +16,7 @@ class OpeningTimeFixtures extends Fixture
          $lundi->setDay("lundi");
          $lundi->setHourIn(new \DateTime('18:00:00'));
          $lundi->setHourOut(new \DateTime('23:00:00'));
+         $lundi->setOpen(false);
 
          $manager->persist($lundi);
 
@@ -23,6 +24,7 @@ class OpeningTimeFixtures extends Fixture
          $mardi->setDay("mardi");
          $mardi->setHourIn(new \DateTime('18:00:00'));
          $mardi->setHourOut(new \DateTime('23:00:00'));
+         $mardi->setOpen(true);
 
          $manager->persist($mardi);
 
@@ -30,6 +32,7 @@ class OpeningTimeFixtures extends Fixture
          $mercredi->setDay("mercredi");
          $mercredi->setHourIn(new \DateTime('18:00:00'));
          $mercredi->setHourOut(new \DateTime('23:00:00'));
+         $mercredi->setOpen(true);
 
          $manager->persist($mercredi);
 
@@ -37,6 +40,7 @@ class OpeningTimeFixtures extends Fixture
          $jeudi->setDay("jeudi");
          $jeudi->setHourIn(new \DateTime('18:00:00'));
          $jeudi->setHourOut(new \DateTime('23:00:00'));
+         $jeudi->setOpen(true);
 
          $manager->persist($jeudi);
 
@@ -44,6 +48,7 @@ class OpeningTimeFixtures extends Fixture
          $vendredi->setDay("vendredi");
          $vendredi->setHourIn(new \DateTime('18:00:00'));
          $vendredi->setHourOut(new \DateTime('23:00:00'));
+         $vendredi->setOpen(true);
 
          $manager->persist($vendredi);
 
@@ -51,6 +56,7 @@ class OpeningTimeFixtures extends Fixture
          $samedi->setDay("samedi");
          $samedi->setHourIn(new \DateTime('18:00:00'));
          $samedi->setHourOut(new \DateTime('23:00:00'));
+         $samedi->setOpen(true);
 
          $manager->persist($samedi);
 
@@ -58,6 +64,7 @@ class OpeningTimeFixtures extends Fixture
          $dimanche->setDay("dimanche");
          $dimanche->setHourIn(new \DateTime('18:00:00'));
          $dimanche->setHourOut(new \DateTime('23:00:00'));
+         $dimanche->setOpen(true);
 
          $manager->persist($dimanche);
 
