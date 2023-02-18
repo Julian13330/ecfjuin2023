@@ -5,8 +5,8 @@
                 <h5 class="text-uppercase mb-4">LE QUAI ANTIQUE</h5>
             </div>
             <div class="col-md-4 mb-md-0 mb-3">
-                <h5 class="text-uppercase mb-4">Horaires</h5>
-                <ul class="list-unstyled d-flex flex-column align-items-middle">
+                <h5 class="text-uppercase mb-4 text-start">Horaires</h5>
+                <ul class="list-unstyled d-flex flex-column align-items-start">
                     {% for OpeningTime in dayMethode %}
                         {% if OpeningTime.open == true %}
 						    <li>
@@ -26,6 +26,6 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright text-center py-3">© 2022 Copyright : 
+    <div class="footer-copyright text-center py-3">© 2022 Copyright : La Pergola, restaurant Niolon
     </div>
 </footer>

@@ -59,6 +59,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $allergie = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $userGuest = null;
+
     public function __construct()
     {
         $this->menus = new ArrayCollection();
@@ -315,6 +318,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAllergie(?string $allergie): self
     {
         $this->allergie = $allergie;
+
+        return $this;
+    }
+
+    public function getUserGuest(): ?int
+    {
+        return $this->userGuest;
+    }
+
+    public function setUserGuest(?int $userGuest): self
+    {
+        $this->userGuest = $userGuest;
 
         return $this;
     }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\ReservationFormType;
 use App\Entity\Reservation;
+use App\Entity\Users;
 use App\Entity\SeatMax;
 use App\Repository\ReservationRepository;
 use App\Repository\OpeningTimeRepository;
@@ -14,19 +15,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 
 
 class ReservationController extends AbstractController
-{
+{   
+
     #[Route('/reservation', name: 'app_reservation')]
     public function index(Request $request,ManagerRegistry $managerRegistry,OpeningTimeRepository $openingTimeRepository,ReservationRepository $reservationRepository,
-    seatMaxRepository $seatMaxRepository): Response
+    seatMaxRepository $seatMaxRepository,Security $security): Response
     {
         // Récupère le gestionnaire d'entité
         $entityManager = $managerRegistry->getManager();
 
         // Récupère le nombre de couverts maximum fixé en base de données dans la table PlacesMax
-        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '2']); // Méthode pour récupérer l'unique ligne de la table.
+        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '3']); // Méthode pour récupérer l'unique ligne de la table.
         $maxReservationPerDayValue = $maxReservationPerDay->getNbrSeatMax();
 
         // Création d'une nouvelle instance de l'entité Reservations
@@ -34,6 +37,12 @@ class ReservationController extends AbstractController
         $reservation->setTime(new \DateTime()); // Permet de mettre une date par défaut au formulaire de réservation
         $reservation->setHour(new \DateTime());// Permet de mettre une heure par défaut au formulaire de réservation
         
+         // Récupère l'information enregistrée par défaut (Nombre de convives/allergies) par l'utilisateur connecté lors de son inscription
+            $user = $security->getUser();
+            $allergieUser = $user->getAllergie();
+            $nbrCouvertUser = $user->getUserGuest();
+            $reservation->setNbrGuest(intval($nbrCouvertUser)); // setNbrGuest demande un integer, mais si la valeur est null pour l'utilisateur alors cela déclenche une erreur, j'ai donc utilisé la methode intval()
+            $reservation->setMealAllergy($allergieUser);
 
         // Création du formulaire et liaison avec l'entité correspondante
         $formResa = $this->createForm(ReservationFormType::class, $reservation);

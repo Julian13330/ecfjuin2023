@@ -22,7 +22,7 @@ class UsersFixtures extends Fixture
         $admin->setLastname('Babarhume');
         $admin->setFirstname('Jul');
         $admin->setPassword(
-            $this->passwordEncoder->hashPassword($admin, 'admin')
+        $this->passwordEncoder->hashPassword($admin, 'admin')
         );
         $admin->setRoles(['ROLE_ADMIN']);
 

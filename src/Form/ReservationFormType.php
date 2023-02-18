@@ -21,6 +21,7 @@ class ReservationFormType extends AbstractType
                     'label' => 'Date',
                     'model_timezone' => 'Europe/Paris',
                     'data' => new \DateTime(),
+                    'widget' => 'single_text'
             ])
             ->add('hour', TimeType::class,
             [
@@ -32,7 +33,7 @@ class ReservationFormType extends AbstractType
                 'minutes' => ['00', '15','30','45']
             ]
         )
-            ->add('nbrguest', IntegerType::class, ['label' => 'Nombre de personnes', 'attr' => ['min' => 1, 'max' => 20]])
+            ->add('nbrguest', IntegerType::class, ['label' => 'Nombre d\'invités', 'attr' => ['min' => 1, 'max' => 20]])
             ->add('meal_allergy',TextType::class, [
                 'required' => false,
                 'label' => 'Avez-vous des allergies alimentaires ?'
