@@ -1,32 +1,20 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-        <main class="container-fluid">
-        {# Création du carousel de plats #}
-            <h1>Voici nos plats savoureux<h1>
-            <div class="col-6">
-                <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-interval="false" data-pause="hover">
-                    <div class="carousel-inner">
-                    {% for meal in mealMethode %}
-                            <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}">
-                            <img class="d-block w-100" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
-                            <div class="col-md-12">{{meal.title}}</div>
+<main>
+	<div class="container d-flex flex-column justify-content-center align-items-center mb-4">
+		 <h1>Nous vous souhaitons la bienvenue dans notre univers gastronomique !</h1>
+		 <div class="gallerie">
+            {% for meal in mealMethode %}
+                    <div class="photo-item m-2">
+                        <img class="image" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                        <div class="middle">
+                            <h3 class="text">{{ meal.title }}</h3>
+                        </div>
                     </div>
-                    {% endfor %}
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        {# Bouton pour se rendre sur la page de réservation#}
-        <div class="position center">
-            <a class="nav-link" href="http://127.0.0.1:8000/reservation"><button class="btn btn-success">Réserver votre table</button></a>
-        </div>
-        </main>
+            {% endfor %}
+      </div>
+	</div>
+</main>		
 {% endblock %}
+
+

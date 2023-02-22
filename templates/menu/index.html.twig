@@ -3,18 +3,44 @@
 {% block title %} Menus du restaurant{% endblock %}
 
 {% block body %}
-    <h1> Les menus !</h1>
-    {% for Menu in menuMethode %}
-    {% for Formula in formulaMethode %}
-		<div class="row">
-			<div class="col-md-3 col-sm-3">
-				{{Menu.title}}
-				<div class="col-md-3 col-sm-3">
-                {{Formula.title}}
-				</div>
-			</div>
-		</div>   
-    {% endfor %}
-    {% endfor %}
-
+<main>	
+								<div class="row">
+									<div class="col-sm-6">
+                    {% for menu in menuMethode %}
+											<div class="card">
+												<div class="card-body">
+													<h2 class="card-title">{% if menu.id == 1 %}{{menu.title}}{% endif %}</h2>
+													{% endfor %}
+													{% for formula in formulaMethode %}
+														<p class="card-text">
+															{% if formula.id == 1 %} <h5> {{formula.title}}</h5>{% endif %}
+															{% if formula.id == 2 %} <h5> {{formula.title}}</h5>{% endif %}
+														</p>
+														{% endfor %}
+												</div>
+											</div>
+									</div>
+									</div>
+									</div>
+									<div class="col-sm-6">
+                    {% for menu in menuMethode %}
+											<div class="card">
+												<div class="card-body">
+													<h2 class="card-title">{% if menu.id == 2 %}{{menu.title}}{% endif %}</h2>
+													{% endfor %}
+													{% for formula in formulaMethode %}
+														<p class="card-text">
+															{% if formula.id == 3 %} <h5> {{formula.title}}</h5>{% endif %}
+															{% if formula.id == 4 %} <h5> {{formula.title}}</h5>{% endif %}
+														</p>
+														{% endfor %}
+												</div>
+											</div>
+									</div>
+								</div>
+</main>								
+									
 {% endblock %}
+
+
+

@@ -6,6 +6,7 @@ use App\Entity\Reservation;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,14 +30,24 @@ class ReservationFormType extends AbstractType
                 'input_format' => 'H:m',
                 'input'  => 'datetime',
                 'widget' => 'choice',
-                'hours' => ['12', '13', '14', '19', '20', '21'],
+                'hours' => ['18', '19', '20', '21','22','23'],
                 'minutes' => ['00', '15','30','45']
             ]
         )
             ->add('nbrguest', IntegerType::class, ['label' => 'Nombre d\'invités', 'attr' => ['min' => 1, 'max' => 20]])
-            ->add('meal_allergy',TextType::class, [
+            ->add('meal_allergy',ChoiceType::class, [
                 'required' => false,
-                'label' => 'Avez-vous des allergies alimentaires ?'
+                'label' => 'Avez-vous des allergies alimentaires ?',
+                'choices' => [
+                    'Lait'=>'Lait',
+                    'Gluten'=>'Gluten',
+                    'Poisson'=>'Poisson',
+                    'Mollusques et crustacés'=>'Mollusques et crustacés',
+                    'Noix'=>'Noix',
+                    'Arachide'=>'Arachide',
+                    'Oeuf'=>'Oeuf',
+                    'autres'=>'autres'
+                ],
                 ])
            // ->add('users')
         ;

@@ -29,7 +29,7 @@ class ReservationController extends AbstractController
         $entityManager = $managerRegistry->getManager();
 
         // Récupère le nombre de couverts maximum fixé en base de données dans la table PlacesMax
-        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '3']); // Méthode pour récupérer l'unique ligne de la table.
+        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '1']); // Méthode pour récupérer l'unique ligne de la table.
         $maxReservationPerDayValue = $maxReservationPerDay->getNbrSeatMax();
 
         // Création d'une nouvelle instance de l'entité Reservations
@@ -38,11 +38,15 @@ class ReservationController extends AbstractController
         $reservation->setHour(new \DateTime());// Permet de mettre une heure par défaut au formulaire de réservation
         
          // Récupère l'information enregistrée par défaut (Nombre de convives/allergies) par l'utilisateur connecté lors de son inscription
+         if($this->isGranted('IS_AUTHENTICATED_FULLY') || $this->isGranted('ROLE_ADMIN')){
             $user = $security->getUser();
             $allergieUser = $user->getAllergie();
+            $nameUser = $user->getLastname();
             $nbrCouvertUser = $user->getUserGuest();
             $reservation->setNbrGuest(intval($nbrCouvertUser)); // setNbrGuest demande un integer, mais si la valeur est null pour l'utilisateur alors cela déclenche une erreur, j'ai donc utilisé la methode intval()
             $reservation->setMealAllergy($allergieUser);
+            $reservation->setName($nameUser);
+         }
 
         // Création du formulaire et liaison avec l'entité correspondante
         $formResa = $this->createForm(ReservationFormType::class, $reservation);
