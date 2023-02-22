@@ -27,6 +27,12 @@
 	<body>
 			<header>
         {% include "_partials/_nav.html.twig" %}
+				<!-- Permet les messages de succès lors d'interaction avec la bdd -->
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
 				{% include "_partials/_photoSite.html.twig" %}
 			</header>
 				<!-- Permet les messages de succès lors d'interaction avec la bdd -->

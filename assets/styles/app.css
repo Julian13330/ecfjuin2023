@@ -70,7 +70,7 @@ h1 {
 /* Le partial photo du site*/
 
 #firstRowHomePage {
-    min-height: 100vh;
+    min-height: 90vh;
     background-image: url("../../public/images/restaurant.jpg");
     background-position: center;
   }
@@ -79,7 +79,7 @@ h1 {
     background-color: white;
   }
   #text-presentation {
-    background-color: #09090923;
+    background-color: #09090988;
     margin-top: -100px;
   }
   .Description {
