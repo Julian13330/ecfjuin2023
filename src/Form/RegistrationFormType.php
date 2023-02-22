@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -45,9 +46,20 @@ class RegistrationFormType extends AbstractType
                 ],
                 'label' => 'Prénom'
             ])
-            ->add('allergie', TextType::class,[
-                'label' => 'Une allergie ?'
-            ])
+            ->add('allergie', ChoiceType::class, [
+                'required' => false,
+                'label' => 'Avez-vous des allergies alimentaires ?',
+                'choices' => [
+                    'Lait'=>'Lait',
+                    'Gluten'=>'Gluten',
+                    'Poisson'=>'Poisson',
+                    'Mollusques et crustacés'=>'Mollusques et crustacés',
+                    'Noix'=>'Noix',
+                    'Arachide'=>'Arachide',
+                    'Oeuf'=>'Oeuf',
+                    'autres'=>'autres'
+                ],
+                ])
             ->add('userguest',IntegerType::class,[
                 'label' => 'Nombre d\'invités',
                 'attr' => ['min' => 1, 'max' => 20]])

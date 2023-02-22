@@ -20,7 +20,8 @@ class MealFormType extends AbstractType
             ])
             ->add('description')
             ->add('price', options:[
-                'label' => 'prix du plat'
+                'label' => 'prix du plat',
+                'attr' => ['min' => 1, 'max' => 40]
             ])
            // ->add('users')
             ->add('category', EntityType::class, [

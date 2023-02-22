@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(239, 254, 225);
+    background-color: rgb(234, 233, 255);
     height: 100%;
 }
 
@@ -71,7 +71,7 @@ h1 {
 
 #firstRowHomePage {
     min-height: 100vh;
-    background-image: url"{{asset('images/restaurant.jpg')}}";
+    background-image: url("../../public/images/restaurant.jpg");
     background-position: center;
   }
 
@@ -79,19 +79,22 @@ h1 {
     background-color: white;
   }
   #text-presentation {
-    background-color: #0c0c0cc9;
+    background-color: #09090923;
     margin-top: -100px;
   }
   .Description {
     max-width: 550px;
     margin:15px auto;
-    font-size: 16px;
+    font-size: 22px;
+    color: white;
   }
   .text-bienvenue {
-    font-size: 22px;
+    font-size: 35px;
+    color: white;
   }
   .big-text {
-    font-size: 50px;
+    color: white;
+    font-size: 70px;
     font-weight: bold;
   }
   #mouseBtn i{
@@ -109,3 +112,10 @@ h1 {
     transform: translate(-50%, -50%) rotate(0deg);
     cursor: pointer;
   }
+
+  /* Admin/plats/index*/
+  .photoPlat{
+    height: 426px;
+    width: 640px;
+  }
+
