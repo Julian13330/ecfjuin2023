@@ -70,7 +70,7 @@ h1 {
 /* Le partial photo du site*/
 
 #firstRowHomePage {
-    min-height: 90vh;
+    min-height: 50vh;
     background-image: url("../../public/images/restaurant.jpg");
     background-position: center;
   }

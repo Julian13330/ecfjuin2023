@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+    <h1>Les réservations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>time</th>
+                <th>nbr_guest</th>
+                <th>hour</th>
+                <th>meal_allergy</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationCompte in reservationCompte %}
+            <tr>
+                <td>{{ reservationCompte.id }}</td>
+                <td>{{ reservationCompte.name }}</td>
+                <td>{{ reservationCompte.time|date('Y-m-d')}}</td>
+                <td>{{ reservationCompte.nbrguest}} personnes</td>
+                <td>{{ reservationCompte.hour|date('H:i:s')}}</td>
+                <td>{{ reservationCompte.mealallergy }}</td>
+                {#<td>
+                    <a href="{{ path('app_calendar_show', {'id': calendar.id}) }}">show</a>
+                    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">edit</a>
+                </td>#}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
