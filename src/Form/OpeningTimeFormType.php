@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\OpeningTime;
-use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -20,12 +19,12 @@ class OpeningTimeFormType extends AbstractType
             ])
             ->add('hour_in',TimeType::class,[
                 'input' => 'datetime',
-                'widget' => 'choice' ,
+                'widget' => 'choice',
                 'label' => 'indiquez l\'heure d\'ouverture'
             ])
             ->add('hour_out',TimeType::class,[
                 'input' => 'datetime',
-                'widget' => 'choice' ,
+                'widget' => 'choice',
                 'label' => 'indiquez l\'heure de fermeture'
             ])
         ;
