@@ -11,9 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+#[Route('/admin', name: 'admin_horaires_')]
 class HorairesController extends AbstractController
 {
-  #[Route('/admin/horaires', name: 'admin_horaires_')]
+  #[Route('/jours', name: 'index_horaires')]
     public function index(OpeningTimeRepository $openingTimeRepository): Response
     {
         return $this->render('admin/jours/index.html.twig', [
@@ -21,7 +22,7 @@ class HorairesController extends AbstractController
         ]);
     }
 
-    #[Route('/jours/{day}', name:'jour_')]
+    #[Route('/jours/{day}', name:'horaire')]
     public function horaire(OpeningTime $openingTime,Request $request,OpeningTimeRepository $openingTimeRepository, EntityManagerInterface $EntityManager): Response
     {  
         if(!$openingTime){
