@@ -22,7 +22,7 @@ class HorairesController extends AbstractController
         ]);
     }
 
-    #[Route('/jours/{day}', name:'jour')]
+    #[Route('/jours/{day}', name:'jour_')]
     public function horaire(OpeningTime $openingTime,Request $request,OpeningTimeRepository $openingTimeRepository, EntityManagerInterface $EntityManager): Response
     {  
         if(!$openingTime){

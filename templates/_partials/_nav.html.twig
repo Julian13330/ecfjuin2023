@@ -24,13 +24,13 @@
 				{# Nav lorsque l'admin se connecte #}
 				{% if is_granted('ROLE_ADMIN') %}
 				<li class="nav-item">
-				 	<a class="nav-link" href={{path('admin_horaires_jours_jour')}}>Gérer les horaires</a>
+				 	<a class="nav-link" href={{path('admin_horaires_')}}>Gérer les horaires</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href={{'http://127.0.0.1:8000/admin/plats'}}>Gérer les plats</a>
+					<a class="nav-link" href={{path('admin_plats_')}}>Gérer les plats</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href={{path('app_compte')}}>Voir les réservations</a>
+					<a class="nav-link" href={{path('app_compte_')}}>Voir les réservations</a>
 				</li>
 				{% endif %}
 
