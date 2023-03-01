@@ -13,10 +13,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-#[Route('/admin/plats', name: 'admin_plats_')]
 class MealController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    #[Route('/admin/plats', name: 'admin_plats_')]
     public function index(MealRepository $mealRepository,OpeningTimeRepository $openingTimeRepository): Response
     {
 

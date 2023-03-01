@@ -11,10 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-#[Route('/admin', name: 'admin_horaires_')]
 class HorairesController extends AbstractController
 {
-  #[Route('/jours', name: 'jours_')]
+  #[Route('/admin/horaires', name: 'admin_horaires_')]
     public function index(OpeningTimeRepository $openingTimeRepository): Response
     {
         return $this->render('admin/jours/index.html.twig', [
