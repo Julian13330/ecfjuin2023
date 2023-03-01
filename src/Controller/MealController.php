@@ -8,10 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/carte', name:'/carte_')]
 class MealController extends AbstractController
 {
-    #[Route('/', name:'/index')]
+    #[Route('/carte', name:'app_carte')]
     public function index(MealRepository $mealRepository,OpeningTimeRepository $openingTimeRepository): Response
     {
         return $this->render('carte/index.html.twig', [
