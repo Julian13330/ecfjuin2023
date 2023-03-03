@@ -9,12 +9,12 @@
                     {% for menu in menuMethode %}
 											<div class="card">
 												<div class="card-body">
-													<h2 class="card-title">{% if menu.id == 1 %}{{menu.title}}{% endif %}</h2>
+													<h2 class="card-title">{% if menu.title == "Menu Moussaillon -10 ans" %}{{menu.title}}{% endif %}</h2>
 													{% endfor %}
 													{% for formula in formulaMethode %}
 														<p class="card-text">
-															{% if formula.id == 1 %} <h5> {{formula.title}}</h5>{% endif %}
-															{% if formula.id == 2 %} <h5> {{formula.title}}</h5>{% endif %}
+															{% if formula.title == "Formule du petit moussaillon" %} <h5> {{formula.title}}</h5>{% endif %}
+															{% if formula.title == "Formule du grand moussaillon" %} <h5> {{formula.title}}</h5>{% endif %}
 														</p>
 														{% endfor %}
 												</div>
@@ -26,12 +26,12 @@
                     {% for menu in menuMethode %}
 											<div class="card">
 												<div class="card-body">
-													<h2 class="card-title">{% if menu.id == 2 %}{{menu.title}}{% endif %}</h2>
+													<h2 class="card-title">{% if menu.title == "Menu Plaisir" %}{{menu.title}}{% endif %}</h2>
 													{% endfor %}
 													{% for formula in formulaMethode %}
 														<p class="card-text">
-															{% if formula.id == 3 %} <h5> {{formula.title}}</h5>{% endif %}
-															{% if formula.id == 4 %} <h5> {{formula.title}}</h5>{% endif %}
+															{% if formula.title == "Formule déjeuner" %} <h5> {{formula.title}}</h5>{% endif %}
+															{% if formula.title == "Formule diner" %} <h5> {{formula.title}}</h5>{% endif %}
 														</p>
 														{% endfor %}
 												</div>
