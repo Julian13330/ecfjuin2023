@@ -29,7 +29,7 @@ class ReservationController extends AbstractController
         $entityManager = $managerRegistry->getManager();
 
         // Récupère le nombre de couverts maximum fixé en base de données dans la table PlacesMax
-        $maxReservationPerDay = $seatMaxRepository->findOneBy(['nbr_seat_max' => '20']); // Méthode pour récupérer l'unique ligne de la table.
+        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '1']); // Méthode pour récupérer l'unique ligne de la table.
         $maxReservationPerDayValue = $maxReservationPerDay->getNbrSeatMax();
 
         // Création d'une nouvelle instance de l'entité Reservations
