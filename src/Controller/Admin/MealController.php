@@ -7,7 +7,6 @@ use App\Form\MealFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\OpeningTimeRepository;
 use App\Repository\MealRepository;
-use App\Repository\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,8 +15,18 @@ use Symfony\Component\HttpFoundation\Request;
 #[Route('/admin/plats', name: 'admin_plats_')]
 class MealController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    #[Route('/', name: 'liste_')]
     public function index(MealRepository $mealRepository,OpeningTimeRepository $openingTimeRepository): Response
+    {
+
+        return $this->render('admin/plats/liste.html.twig', [
+            'dayMethode' => $openingTimeRepository->findAll(),
+            'mealMethode'=>$mealRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/gestion', name: 'gestion_')]
+    public function gestion(MealRepository $mealRepository,OpeningTimeRepository $openingTimeRepository): Response
     {
 
         return $this->render('admin/plats/index.html.twig', [
@@ -47,7 +56,7 @@ class MealController extends AbstractController
 
             $EntityManager->flush();
             $this->addFlash('success', 'Plat modifié avec succès');
-            return $this->redirectToRoute('main');
+            return $this->redirectToRoute('app_main');
     
            
     }
@@ -77,7 +86,7 @@ class MealController extends AbstractController
         $EntityManager->flush();
 
         $this->addFlash('success', 'Plat modifié avec succès');
-        return $this->redirectToRoute('main');
+        return $this->redirectToRoute('app_main');
 }
         return $this->render('admin/plats/edit.html.twig', [
             'mealForm' => $mealForm->createView(),
@@ -94,7 +103,7 @@ class MealController extends AbstractController
         $EntityManager->flush();
 
         $this->addFlash('success', 'Plat supprimé avec succès');
-        return $this->redirectToRoute('main');
+        return $this->redirectToRoute('app_main');
 
         return $this->render('admin/plats/index.html.twig', [
             'dayMethode' => $openingTimeRepository->findAll(),

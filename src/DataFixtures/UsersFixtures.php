@@ -36,6 +36,8 @@ class UsersFixtures extends Fixture
             $user->setUsername($faker->username);
             $user->setLastname($faker->lastname);
             $user->setFirstname($faker->firstname);
+            $user->setAllergie('Gluten');
+            $user->setUserGuest($faker->randomNumber(20));
             $user->setPassword(
             $this->passwordEncoder->hashPassword($user, 'secret')
         );

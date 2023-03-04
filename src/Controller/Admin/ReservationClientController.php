@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ReservationClientController extends AbstractController
 {
-    #[Route('/compte', name: 'app_compte_')]
+    #[Route('/admin/compte', name: 'app_compte_')]
     public function index(OpeningTimeRepository $openingTimeRepository,ReservationRepository $reservationRepository): Response
     {
         return $this->render('admin/réservationClient/index.html.twig', [

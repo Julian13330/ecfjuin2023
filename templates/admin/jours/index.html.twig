@@ -1,14 +1,38 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %} Administration des horaires{% endblock %}
+{% block title %}Les horaires de la semaine{% endblock %}
 
 {% block body %}
-    <h1> Administration des horaires par journées </h1>
-    <a href={{'jours/lundi'}}><button class="btn btn-primary"> Lundi </button></a>
-    <a href={{'jours/mardi'}}><button class="btn btn-primary"> Mardi </button></a>
-    <a href={{'jours/mercredi'}}><button class="btn btn-primary"> Mercredi </button></a>
-    <a href={{'jours/jeudi'}}><button class="btn btn-primary"> Jeudi </button></a>
-    <a href={{'jours/vendredi'}}><button class="btn btn-primary"> Vendredi </button></a>
-    <a href={{'jours/samedi'}}><button class="btn btn-primary"> Samedi </button></a>
-    <a href={{'jours/dimanche'}}><button class="btn btn-primary"> Dimanche </button></a>
+  <div class="container">
+    <div class="row">
+      {% include "_partials/_adminnav.html.twig" %}
+        <main class="col-9 border border-light bg-white p-2">
+          <h1>Les horaires de la semaine</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>JOURS</th>
+                <th>OUVERTURE</th>
+                <th>FERMETURE</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for OpeningTime in dayMethode %}
+                <tr>
+                  <td>{{OpeningTime.id}}</td>
+                  <td>{{OpeningTime.day}}</td>
+                  <td>{{OpeningTime.HourIn|date('H:i')}}</td>
+                  <td>{{OpeningTime.HourOut|date('H:i')}}</td>
+                  <td>
+                    <a href="{{path('admin_horaires_edit',{day: OpeningTime.day})}}"><button class="btn btn-primary">Modifier</button></a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </main>
+    </div>
+  </div>
 {% endblock %}

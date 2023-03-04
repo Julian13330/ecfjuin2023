@@ -12,22 +12,20 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>NOM</th>
-                <th>DATE</th>
-                <th>INVITE</th>
-                <th>HEURE</th>
-                <th>ALLERGIES</th>
+                <th>Catégorie</th>
+                <th>TITLE</th>
+                <th>DESCRIPTION</th>
+                <th>PRICE</th>
               </tr>
             </thead>
             <tbody>
-              {% for reservationCompte in reservationCompte %}
+              {% for meal in mealMethode %}
                 <tr>
-                  <td>{{ reservationCompte.id }}</td>
-                  <td>{{ reservationCompte.name }}</td>
-                  <td>{{ reservationCompte.time|date('d-m-Y')}}</td>
-                  <td>{{ reservationCompte.nbrguest}} personnes</td>
-                  <td>{{ reservationCompte.hour|date('H:i:s')}}</td>
-                  <td>{{ reservationCompte.mealallergy }}</td>
+                  <td>{{ meal.id }}</td>
+                  <td>{{meal.category.title}}</td>
+                  <td>{{ meal.title }}</td>
+                  <td>{{ meal.description}}</td>
+                  <td>{{ meal.price}} €</td>
                 </tr>
               {% endfor %}
             </tbody>

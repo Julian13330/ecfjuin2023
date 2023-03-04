@@ -82,7 +82,7 @@ class ReservationController extends AbstractController
             $entityManager->persist($reservation);
             $entityManager->flush();
             $this->addFlash('success', 'Merci, votre réservation a bien été prise en compte');
-            return $this->redirectToRoute('main');
+            return $this->redirectToRoute('app_main');
         }
         // Sinon affiche un message d'erreur.
         elseif ($maxReservationPerDayValue < ($nbrCouvertMidi + $nbrCouvertSelectionne) || $maxReservationPerDayValue < ($nbrCouvertSoir + $nbrCouvertSelectionne) ) {
