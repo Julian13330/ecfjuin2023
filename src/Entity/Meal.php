@@ -41,6 +41,9 @@ class Meal
     #[ORM\ManyToOne(inversedBy: 'meals')]
     private ?Category $category = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $favoris = null;
+
     public function __construct()
     {
        
@@ -145,6 +148,18 @@ class Meal
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function isFavoris(): ?bool
+    {
+        return $this->favoris;
+    }
+
+    public function setFavoris(?bool $favoris): self
+    {
+        $this->favoris = $favoris;
 
         return $this;
     }

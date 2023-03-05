@@ -29,6 +29,9 @@ class MealFormType extends AbstractType
                 'label' => 'catégorie du plat',
                 'choice_label' => 'title'
             ])
+            ->add('favoris', options: [
+                'label' => 'Voulez-vous afficher le plat ?'
+            ])
             ->add('imageFile', VichImageType::class, [
                 'label' => 'image du plat',
                 'label_attr' => [

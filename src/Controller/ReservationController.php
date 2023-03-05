@@ -25,17 +25,16 @@ class ReservationController extends AbstractController
     public function index(Request $request,ManagerRegistry $managerRegistry,OpeningTimeRepository $openingTimeRepository,ReservationRepository $reservationRepository,
     seatMaxRepository $seatMaxRepository,Security $security): Response
     {
-        // Récupère le gestionnaire d'entité
         $entityManager = $managerRegistry->getManager();
 
-        // Récupère le nombre de couverts maximum fixé en base de données dans la table PlacesMax
-        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '1']); // Méthode pour récupérer l'unique ligne de la table.
+        // Récupère le nombre de convives maximum dans la salle du restaurant dans la base de données
+        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '1']);
         $maxReservationPerDayValue = $maxReservationPerDay->getNbrSeatMax();
 
         // Création d'une nouvelle instance de l'entité Reservations
         $reservation = new Reservation();
-        $reservation->setTime(new \DateTime()); // Permet de mettre une date par défaut au formulaire de réservation
-        $reservation->setHour(new \DateTime());// Permet de mettre une heure par défaut au formulaire de réservation
+        $reservation->setTime(new \DateTime()); // Ajout de la date au formulaire
+        $reservation->setHour(new \DateTime());// Ajout de la date au formulaire
         
          // Récupère l'information enregistrée par défaut (Nombre de convives/allergies) par l'utilisateur connecté lors de son inscription
          if($this->isGranted('IS_AUTHENTICATED_FULLY') || $this->isGranted('ROLE_ADMIN')){

@@ -5,12 +5,14 @@
 		 <h1>Nous vous souhaitons la bienvenue dans notre univers gastronomique !</h1>
 		 <div class="gallerie">
             {% for meal in mealMethode %}
+                {% if meal.favoris == true %}
                     <div class="photo-item m-2">
                         <img class="image" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
                         <div class="middle">
                             <h3 class="text">{{ meal.title }}</h3>
                         </div>
                     </div>
+                {% endif %}
             {% endfor %}
       </div>
 	</div>

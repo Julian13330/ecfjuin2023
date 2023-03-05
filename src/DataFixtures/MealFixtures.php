@@ -17,6 +17,7 @@ class MealFixtures extends Fixture
          $soupe->setDescription('Croutons,rouille,emmental et gousse d\'ail');
          $soupe->setImageName('');
          $soupe->setPrice(14,00);
+         $soupe->setFavoris('yes');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $soupe->setCategory($this->getReference(CategoryFixtures::CATEGORY_ENTREE));
          $manager->persist($soupe);
@@ -27,6 +28,7 @@ class MealFixtures extends Fixture
          $dorade->setTitle('Le filet de Dorade');
          $dorade->setDescription('Risotto aux champignons, sauces aux girolles et au foie gras');
          $dorade->setPrice(32,00);
+         $dorade->setFavoris('yes');
          $dorade->setImageName('');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $dorade->setCategory($this->getReference(CategoryFixtures::CATEGORY_MER));
@@ -38,6 +40,7 @@ class MealFixtures extends Fixture
          $entrecôte->setDescription('Entrecôte race Limousine, environ 260 grammes');
          $entrecôte->setImageName('');
          $entrecôte->setPrice(26,00);
+         $entrecôte->setFavoris('yes');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $entrecôte->setCategory($this->getReference(CategoryFixtures::CATEGORY_TERRE));
          $manager->persist($entrecôte);
@@ -48,6 +51,7 @@ class MealFixtures extends Fixture
          $chocolat->setDescription('Mousse au chocolat fait maison, glace vanille');
          $chocolat->setImageName('');
          $chocolat->setPrice(10,00);
+         $chocolat->setFavoris('yes');
          // getReference qui me permet d'ajouter la catégorie à mon plat.
          $chocolat->setCategory($this->getReference(CategoryFixtures::CATEGORY_DESSERT));
          $manager->persist($chocolat);

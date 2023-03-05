@@ -12,10 +12,11 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Catégorie</th>
+                <th>CATEGORIE</th>
                 <th>TITLE</th>
                 <th>DESCRIPTION</th>
-                <th>PRICE</th>
+                <th>PRIX</th>
+                <th>FAVORIS</th>
               </tr>
             </thead>
             <tbody>
@@ -26,6 +27,11 @@
                   <td>{{ meal.title }}</td>
                   <td>{{ meal.description}}</td>
                   <td>{{ meal.price}} €</td>
+                  {% if meal.favoris == 1 %}
+                    <td>oui </td>
+                    {% else %}
+                    <td>non</td>
+                  {% endif %}
                 </tr>
               {% endfor %}
             </tbody>
