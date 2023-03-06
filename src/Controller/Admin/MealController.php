@@ -36,7 +36,7 @@ class MealController extends AbstractController
     }
 
     // Ajouter un nouveau plat
-    #[Route('/ajout/{id}', name: 'add')]
+    #[Route('/ajout/{title}', name: 'add_')]
     public function ajout(MealRepository $mealRepository,Meal $meal,OpeningTimeRepository $openingTimeRepository, EntityManagerInterface $EntityManager,Request $request): Response
     {
         //On crée un nouveau plat

@@ -28,7 +28,7 @@ class ReservationController extends AbstractController
         $entityManager = $managerRegistry->getManager();
 
         // Récupère le nombre de convives maximum dans la salle du restaurant dans la base de données
-        $maxReservationPerDay = $seatMaxRepository->findOneBy(['id' => '1']);
+        $maxReservationPerDay = $seatMaxRepository->findOneBy(['NbrSeatMax' => '20']);
         $maxReservationPerDayValue = $maxReservationPerDay->getNbrSeatMax();
 
         // Création d'une nouvelle instance de l'entité Reservations

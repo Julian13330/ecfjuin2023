@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(234, 233, 255);
+    background-color: rgb(247, 246, 255);
     height: 100%;
 }
 
@@ -119,3 +119,14 @@ h1 {
     width: 640px;
   }
 
+  /* La carte/index.html.twig */
+  #card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-box-shadow: 1px 1px 9px -3px #8f8f8f;
+    box-shadow: 1px 1px 9px -3px #8f8f8f;
+    width: 640px;
+    height: 426px;
+    transition: transform 0.3s;
+}

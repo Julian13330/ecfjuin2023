@@ -1,5 +1,91 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}La Carte{% endblock %}
+
+{% block body %}
+    {# Affichage des entrées #}
+    <div class="categorie-section" data-category="entrees">
+    <table class="generic-table meal-list">
+                <h1>Les Entrées</h1>
+                <div class="d-flex flex-wrap">
+                    {% for meal in mealMethode %}
+                        {% if meal.category.title == "Les entrées" %}
+                            <div id="card">
+                                <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                            </div>
+                            <div class="card-info d-flex flex-column justify-content-center align-items-center">
+                                <h3 class="card-title">{{ meal.title }}</h3>
+                                <p class="description">{{ meal.description }}</p>
+                                <p class="price">{{ meal.price }}€</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {# Affichage des plats mer #}
+        <div class="categorie-section" data-category="plats mer">
+            <h1>Les Plats mer</h1>
+            <div class="d-flex flex-wrap">
+                {% for meal in mealMethode %}
+                    {% if meal.category.title == "Les plats mer" %}
+                        <div id="card">
+                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                        </div>
+                        <div class="card-info d-flex flex-column justify-content-center align-items-center">
+                            <h3 class="card-title">{{ meal.title }}</h3>
+                            <p class="description">{{ meal.description }}</p>
+                            <p class="price">{{ meal.price }}€</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+       {# Affichage des plats terre #}
+        <div class="categorie-section" data-category="plats terre">
+            <h1>Les Plats terre</h1>
+            <div class="d-flex flex-wrap">
+                {% for meal in mealMethode %}
+                    {% if meal.category.title == "Les plats terre" %}
+                        <div id="card">
+                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                        </div>
+                        <div class="card-info d-flex flex-column justify-content-center align-items-center">
+                            <h3 class="card-title">{{ meal.title }}</h3>
+                            <p class="description">{{ meal.description }}</p>
+                            <p class="price">{{ meal.price }}€</p>
+                        </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {# Affichage des desserts #}
+        <div class="categorie-section" data-category="desserts">
+            <h1>Les Desserts</h1>
+            <div class="d-flex flex-wrap">
+                {% for meal in mealMethode %}
+                    {% if meal.category.title == "Les desserts" %}
+                        <div id="card">
+                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                        </div>
+                        <div class="card-info d-flex flex-column justify-content-center align-items-center">
+                            <h3 class="card-title">{{ meal.title }}</h3>
+                            <p class="description">{{ meal.description }}</p>
+                            <p class="price">{{ meal.price }}€</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+{#{% extends 'base.html.twig' %}
+
 {% block title %} La carte du restaurant{% endblock %}
 
 {% block body %}
@@ -22,4 +108,4 @@
          {% endfor %}
          </tbody>
     </table>
-{% endblock %}
+{% endblock %}#}
