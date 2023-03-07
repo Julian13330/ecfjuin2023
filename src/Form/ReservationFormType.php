@@ -30,7 +30,7 @@ class ReservationFormType extends AbstractType
                 'input_format' => 'H:m',
                 'input'  => 'datetime',
                 'widget' => 'choice',
-                'hours' => ['18', '19', '20', '21','22','23'],
+                'hours' => ['18', '19', '20', '21','22'],
                 'minutes' => ['00', '15','30','45']
             ]
         )

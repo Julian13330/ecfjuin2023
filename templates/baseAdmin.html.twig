@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}Accueil{% endblock %} - Site restaurant</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<!-- Feuilles de styles -->
+      {% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
+			<!-- CDN de fullcalendar -->
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+			{{ encore_entry_link_tags('app') }}
+			{% endblock %}
+				
+		<!-- Fichiers JS -->
+		{% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+		<script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}"defer></script>
+		<!-- JS de fullcalendar -->
+		<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js" integrity="sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=" crossorigin="anonymous"></script>
+		{% endblock %}
+		
+		<!-- Attention, emplacement de assets js scripts. js defer voir new techno -->
+	</head>
+	<body>
+			<header>
+        {% include "_partials/_nav.html.twig" %}
+				<!-- Permet les messages de succès lors d'interaction avec la bdd -->
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+				{% include "_partials/_photoSiteAdmin.html.twig" %}
+			</header>
+				<!-- Permet les messages de succès lors d'interaction avec la bdd -->
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+
+		{% block body %}{% endblock %}
+
+        {% include "_partials/_footer.html.twig" %}
+	</body>
+</html>

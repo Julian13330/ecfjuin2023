@@ -15,6 +15,9 @@ class Reservation
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @Assert\Length(max=20)
+     */
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
