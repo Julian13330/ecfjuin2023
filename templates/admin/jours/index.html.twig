@@ -23,8 +23,14 @@
                 <tr>
                   <td>{{OpeningTime.id}}</td>
                   <td>{{OpeningTime.day}}</td>
-                  <td>{{OpeningTime.HourIn|date('H:i')}}</td>
-                  <td>{{OpeningTime.HourOut|date('H:i')}}</td>
+                  {% if OpeningTime.Open == "true" %}
+                    <td>{{OpeningTime.HourIn|date('H:i')}}</td>
+                    <td>{{OpeningTime.HourOut|date('H:i')}}</td>
+                  {% else %}
+                    <td> Fermé </td>
+                    <td> Fermé </td>
+                  {% endif %}
+                  
                   <td>
                     <a href="{{path('admin_horaires_edit',{day: OpeningTime.day})}}"><button class="btn btn-primary">Modifier</button></a>
                   </td>

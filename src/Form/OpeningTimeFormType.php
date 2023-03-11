@@ -22,6 +22,9 @@ class OpeningTimeFormType extends AbstractType
                 'widget' => 'choice',
                 'label' => 'indiquez l\'heure d\'ouverture'
             ])
+            ->add('open', options: [
+                'label' => 'Ouvert ce jour ?'
+            ])
             ->add('hour_out',TimeType::class,[
                 'input' => 'datetime',
                 'widget' => 'choice',
