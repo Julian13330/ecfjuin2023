@@ -5,7 +5,8 @@
     {{ form_row(formResa.hour)}}
     {{ form_row(formResa.nbrguest)}}
     {{ form_row(formResa.meal_allergy)}}
-    <button type="submit" class="btn btn-light mb-3">{{ button_label|default('Réserver') }}</button>
+    <button type="submit" class="btn btn-light mb-3" id="reserver">{{ button_label|default('Réserver') }}</button>
 </div>
 
 {{ form_end(formResa) }}
+

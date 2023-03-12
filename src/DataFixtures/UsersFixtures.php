@@ -21,6 +21,7 @@ class UsersFixtures extends Fixture
         $admin->setUsername('helloJul');
         $admin->setLastname('Babarhume');
         $admin->setFirstname('Jul');
+        $admin->setAllergie('Gluten');
         $admin->setPassword(
         $this->passwordEncoder->hashPassword($admin, 'admin')
         );

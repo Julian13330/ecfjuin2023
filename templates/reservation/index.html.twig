@@ -5,11 +5,18 @@
 {% block body %}
 <div class="container mx-auto">
     <h1> Réservation de votre table</h1>
-     {% include "_partials/reservation/_form.html.twig" %}
+     {{ form_start(formResa) }}
+<div class="row">
+    {{ form_row(formResa.name)}}
+    {{ form_row(formResa.time)}}
+    {{ form_row(formResa.hour)}}
+    {{ form_row(formResa.nbrguest)}}
+    {{ form_row(formResa.meal_allergy)}}
+    <button type="submit" class="btn btn-light mb-3 js_users"> {{ button_label|default('Réserver') }}</button>
+</div>
+
+{{ form_end(formResa) }}
     </div>
 
 {% endblock %}
 
-{% block javascripts %}
-
-{% endblock %}

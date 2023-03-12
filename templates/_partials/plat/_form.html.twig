@@ -6,8 +6,9 @@
     <div class="col-md-6">{{ form_row(mealForm.category)}}</div>
     <div class="col-md-6">{{ form_row(mealForm.favoris)}}</div>
     <div class="col-md-6">{{ form_row(mealForm.imageFile)}}</div>
-    <button type="submit" class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
-
+    <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary mb-3">{{ button_label|default('Modifier') }}</button>
+    </div>
 </div>
 
 {{ form_end(mealForm) }}

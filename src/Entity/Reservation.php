@@ -14,13 +14,14 @@ class Reservation
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
+    
     /**
-     * @Assert\Length(max=20)
+     * @Assert\Length(max=30)
      */
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
+    //#[Assert\GreaterThan("now")]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $time = null;
 
