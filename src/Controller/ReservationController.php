@@ -83,10 +83,16 @@ class ReservationController extends AbstractController
             $this->addFlash('success', 'Merci, votre réservation a bien été prise en compte');
             return $this->redirectToRoute('app_main');
         }
-        // Sinon affiche un message d'erreur.
+        // Sinon affiche un message d'erreur car il n'y a plus de places disponibles
         elseif ($maxReservationPerDayValue < ($nbrCouvertMidi + $nbrCouvertSelectionne) || $maxReservationPerDayValue < ($nbrCouvertSoir + $nbrCouvertSelectionne) ) {
-            $this->addFlash('full', 'Il n\'y a plus de place disponible à cette date');
-            return $this->redirectToRoute('app_reservation');
+            //$this->addFlash('full', 'Il n\'y a plus de place disponible à cette date');
+            //return $this->redirectToRoute('app_reservation');
+            echo "<script>alert(\"Il n'y a malheuresement plus de places pour ce créneau, merci de choisir une autre heure\")</script>";
+            //return $this->json(['code' => 200, 'message' => 'ca marche bien'], 200);
+            //$flash = 'Erreur plus de places disponibles';
+            //header('Content-Type: application/json');
+            //echo json_encode($flash);
+            //return $this->json(['code' => 200, 'message' => 'plus de place'], 200);
         }
         // On retourne le rendu twig auquel on passe les produits de la carte et le formulaire
         return $this->render('reservation/index.html.twig', [

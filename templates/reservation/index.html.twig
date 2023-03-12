@@ -3,20 +3,40 @@
 {% block title %}Réservation{% endblock %}
 
 {% block body %}
-<div class="container mx-auto">
-    <h1> Réservation de votre table</h1>
-     {{ form_start(formResa) }}
-<div class="row">
-    {{ form_row(formResa.name)}}
-    {{ form_row(formResa.time)}}
-    {{ form_row(formResa.hour)}}
-    {{ form_row(formResa.nbrguest)}}
-    {{ form_row(formResa.meal_allergy)}}
-    <button type="submit" class="btn btn-light mb-3 js_users"> {{ button_label|default('Réserver') }}</button>
-</div>
-
-{{ form_end(formResa) }}
+    <div class="container mx-auto">
+        <h1> Réservation de votre table</h1>
+        {{ form_start(formResa) }}
+    <div class="row">
+        {{ form_row(formResa.name)}}
+        {{ form_row(formResa.time)}}
+        {{ form_row(formResa.hour)}}
+        {{ form_row(formResa.nbrguest)}}
+        {{ form_row(formResa.meal_allergy)}}
+        <a href="{{path('app_reservation')}}" class="js-like"><button type="submit" class="btn btn-light mb-3"> {{ button_label|default('Réserver') }}</button></a>
     </div>
 
+    {{ form_end(formResa) }}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {#<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+        function onClickBtn(event){
+            event.preventDefault();
+
+            const url = this.href;
+
+            axios.get(url).then(function (response) {
+                console.log(response);
+            })
+        }
+
+        document.querySelectorAll('js-like').forEach(function(link){
+            link.addEventListener('click', onClickBtn);
+        })
+    </script>#}
 {% endblock %}
 

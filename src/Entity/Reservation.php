@@ -21,7 +21,7 @@ class Reservation
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    //#[Assert\GreaterThan("now")]
+    #[Assert\GreaterThan("now", message: "La date de réservation doit être supérieure à la date du jour")]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $time = null;
 
