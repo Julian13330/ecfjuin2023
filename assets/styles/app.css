@@ -1,6 +1,15 @@
+nav{
+  font-family: 'Rubik';
+  font-size: 20px;
+}
+
 body {
     background-color: rgb(247, 246, 255);
     height: 100%;
+    font-family: 'Oswald';
+}
+footer {
+  background-color: #2da0ba;
 }
 
 html {
@@ -13,6 +22,17 @@ h1 {
     font-weight: lighter;
     margin: 75px;
     font-size: 3rem;
+}
+a{
+  text-decoration: none;
+  color: #2da0ba;
+}
+#myButton {
+  background-color: #2da0ba;
+  color: white;
+}
+#myButtonDelete {
+  background-color: #FFC8DD;
 }
 
 /* La page Main*/

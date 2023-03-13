@@ -22,7 +22,7 @@
                   <td>{{ seat.id }}</td>
                   <td>{{ seat.nbrSeatMax}} places</td>
                   <td>
-                    <a href="{{path('admin_seat_edit',{id: seat.id})}}"><button class="btn btn-primary">Modifier</button></a>
+                    <a href="{{path('admin_seat_edit',{id: seat.id})}}"><button class="btn" id="myButton">Modifier</button></a>
                   </td>
                 </tr>
               {% endfor %}

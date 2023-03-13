@@ -11,7 +11,7 @@
           {{ form_start(seatForm) }}
             <div class="row">
               <div class="col-md-6">{{ form_row(seatForm.nbrSeatMax)}}</div>
-              <button type="submit" class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
+              <button type="submit" class="btn" id="myButton">{{ button_label|default('Modifier') }}</button>
             </div>
           {{ form_end(seatForm) }}
         </main>

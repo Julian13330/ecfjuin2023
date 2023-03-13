@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- Navbar  -->
+<nav class="position-fixed navbar navbar-expand-lg navbar-dark bg-transparent w-100 text-light" id="navbarSite">
 	<div class="container-fluid">
 		<a class="navbar-brand" href={{path('app_main')}}>Le quai antique</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,17 +25,8 @@
 				{# Nav lorsque l'admin se connecte #}
 				{% if is_granted('ROLE_ADMIN') %}
 				<li class="nav-item">
-				 	<a class="nav-link" href={{path('admin_index')}}><b>Panneau d'administration</b></a>
+				 	<a class="nav-link" href={{path('admin_index')}}><b id="panelAdmin">Panneau d'administration</b></a>
 				</li>
-				{#<li class="nav-item">
-				 	<a class="nav-link" href={{path('horaires')}}>Gérer les horaires</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href=href={{'http://127.0.0.1:8000/admin/plats'}}>Gérer les plats</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href={{path('app_compte_')}}>Voir les réservations</a>
-				</li>#}
 				{% endif %}
 
 				{# Nav lorsque l'utilisateur se connecte #}

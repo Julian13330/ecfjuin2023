@@ -20,18 +20,18 @@
                                 <td class="number"><strong>{{ meal.price | number_format(2, ',', ' ') }} €</strong>
                                 </td>
                                 <td>
-                                <a href="/admin/plats/{{meal.id}}"><button class="btn btn-primary"> Modifier </button></a>
+                                <a href="/admin/plats/{{meal.id}}"><button class="btn" id="myButton"> Modifier </button></a>
                                 </td>
                                 <td>
 
-                                  <a href="{{ path('admin_plats_delete', {id: meal.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ meal.id) }}" class="btn btn-warning">Supprimer</a>
+                                  <a href="{{ path('admin_plats_delete', {id: meal.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ meal.id) }}" class="btn btn-warning" id="myButtonDelete">Supprimer</a>
                                 </td>
                                 </tr>
                         {% endfor %}
                 </tbody>
         </table>
         <div class="col-12 text-center">
-                <a href="/admin/plats/ajout/{{'Mousse au chocolat'}}"><button class="btn btn-primary mb-3"> Ajouter un plat </button></a>
+                <a href="/admin/plats/ajout/{{'Mousse au chocolat'}}"><button class="btn btn-dark mb-3"> Ajouter un plat </button></a>
         </div>
 </main>
 {% endblock %}
