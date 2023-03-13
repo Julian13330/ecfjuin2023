@@ -2,8 +2,10 @@
 {{ form_start(horaireForm) }}
 <div class="row">
     <div class="col-md-4">{{ form_row(horaireForm.day)}}</div>
-    <div class="col-md-12">{{ form_row(horaireForm.hour_in)}}</div>
-    <div class="col-md-12">{{ form_row(horaireForm.hour_out)}}</div>
+    <div class="col-md-12">{{ form_row(horaireForm.openSoon)}}</div>
+    <div class="col-md-12">{{ form_row(horaireForm.closeSoon)}}</div>
+    <div class="col-md-12">{{ form_row(horaireForm.openNight)}}</div>
+    <div class="col-md-12">{{ form_row(horaireForm.closeNight)}}</div>
     <div class="col-md-12">{{ form_row(horaireForm.open)}}</div>
     <button type="submit" class="btn mb-3" id="myButton">{{ button_label|default('Modifier') }}</button>
 

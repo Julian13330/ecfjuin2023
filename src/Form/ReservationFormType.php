@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\OpeningTime;
 use App\Entity\Reservation;
+use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\AbstractType;
@@ -30,7 +33,7 @@ class ReservationFormType extends AbstractType
                 'input_format' => 'H:m',
                 'input'  => 'datetime',
                 'widget' => 'choice',
-                'hours' => ['18', '19', '20', '21','22'],
+                'hours' => ['12','13','14','18','19', '20', '21','22'],
                 'minutes' => ['00', '15','30','45']
             ]
         )

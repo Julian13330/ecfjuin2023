@@ -13,8 +13,10 @@
               <tr>
                 <th>ID</th>
                 <th>JOURS</th>
-                <th>OUVERTURE</th>
-                <th>FERMETURE</th>
+                <th>OUVERTURE MIDI</th>
+                <th>FERMETURE MIDI</th>
+                <th>OUVERTURE SOIR</th>
+                <th>FERMETURE SOIR</th>
                 <th>ACTION</th>
               </tr>
             </thead>
@@ -24,9 +26,13 @@
                   <td>{{OpeningTime.id}}</td>
                   <td>{{OpeningTime.day}}</td>
                   {% if OpeningTime.Open == "true" %}
-                    <td>{{OpeningTime.HourIn|date('H:i')}}</td>
-                    <td>{{OpeningTime.HourOut|date('H:i')}}</td>
+                    <td>{{OpeningTime.OpenSoon|date('H:i')}}</td>
+                    <td>{{OpeningTime.CloseSoon|date('H:i')}}</td>
+                    <td>{{OpeningTime.OpenNight|date('H:i')}}</td>
+                    <td>{{OpeningTime.CloseNight|date('H:i')}}</td>
                   {% else %}
+                    <td> Fermé </td>
+                    <td> Fermé </td>
                     <td> Fermé </td>
                     <td> Fermé </td>
                   {% endif %}

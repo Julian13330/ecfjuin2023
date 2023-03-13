@@ -20,10 +20,16 @@ class OpeningTime
     private ?string $day = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $hour_in = null;
+    private ?\DateTimeInterface $openSoon = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $hour_out = null;
+    private ?\DateTimeInterface $closeSoon = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $openNight = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $closeNight = null;
 
     #[ORM\Column]
     private ?bool $open = null;
@@ -55,27 +61,50 @@ class OpeningTime
 
         return $this;
     }
-
-    public function getHourIn(): ?\DateTimeInterface
+    public function getOpenSoon(): ?\DateTimeInterface
     {
-        return $this->hour_in;
+        return $this->openSoon;
     }
 
-    public function setHourIn(\DateTimeInterface $hour_in): self
+    public function setOpenSoon(\DateTimeInterface $openSoon): self
     {
-        $this->hour_in = $hour_in;
+        $this->openSoon = $openSoon;
 
         return $this;
     }
 
-    public function getHourOut(): ?\DateTimeInterface
+    public function getCloseSoon(): ?\DateTimeInterface
     {
-        return $this->hour_out;
+        return $this->closeSoon;
     }
 
-    public function setHourOut(\DateTimeInterface $hour_out): self
+    public function setCloseSoon(\DateTimeInterface $closeSoon): self
     {
-        $this->hour_out = $hour_out;
+        $this->closeSoon = $closeSoon;
+
+        return $this;
+    }
+
+    public function getOpenNight(): ?\DateTimeInterface
+    {
+        return $this->openNight;
+    }
+
+    public function setOpenNight(\DateTimeInterface $openNight): self
+    {
+        $this->openNight = $openNight;
+
+        return $this;
+    }
+
+    public function getCloseNight(): ?\DateTimeInterface
+    {
+        return $this->closeNight;
+    }
+
+    public function setCloseNight(\DateTimeInterface $closeNight): self
+    {
+        $this->closeNight = $closeNight;
 
         return $this;
     }
@@ -136,7 +165,7 @@ class OpeningTime
 
     public function __toString()
     {
-        return $this->getHourIn();
+       
     }
 
 }

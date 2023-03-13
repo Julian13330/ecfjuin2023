@@ -17,18 +17,28 @@ class OpeningTimeFormType extends AbstractType
             ->add('day', TextType::class,[
                 'label' => 'journée de la semaine'
             ])
-            ->add('hour_in',TimeType::class,[
+            ->add('openSoon',TimeType::class,[
                 'input' => 'datetime',
                 'widget' => 'choice',
-                'label' => 'indiquez l\'heure d\'ouverture'
+                'label' => 'indiquez l\'heure d\'ouverture du midi'
+            ])
+            ->add('closeSoon',TimeType::class,[
+                'input' => 'datetime',
+                'widget' => 'choice',
+                'label' => 'indiquez l\'heure de fermeture du midi'
             ])
             ->add('open', options: [
                 'label' => 'Ouvert ce jour ?'
             ])
-            ->add('hour_out',TimeType::class,[
+            ->add('openNight',TimeType::class,[
                 'input' => 'datetime',
                 'widget' => 'choice',
-                'label' => 'indiquez l\'heure de fermeture'
+                'label' => 'indiquez l\'heure d\'ouverture du soir'
+            ])
+            ->add('closeNight',TimeType::class,[
+                'input' => 'datetime',
+                'widget' => 'choice',
+                'label' => 'indiquez l\'heure de fermeture du soir'
             ])
         ;
     }
