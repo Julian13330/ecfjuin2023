@@ -7,27 +7,29 @@
     <div class="row">
       {% include "_partials/_adminnav.html.twig" %}
         <main class="col-9 border border-light bg-white p-2">
-          <h1>Gestion des places</h1>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>CAPACITE</th>
-                <th>ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for seat in seatMethode %}
+          <div class="table-responsive">
+            <h1>Gestion des places</h1>
+            <table class="table table-hover">
+              <thead>
                 <tr>
-                  <td>{{ seat.id }}</td>
-                  <td>{{ seat.nbrSeatMax}} places</td>
-                  <td>
-                    <a href="{{path('admin_seat_edit',{id: seat.id})}}"><button class="btn" id="myButton">Modifier</button></a>
-                  </td>
+                  <th>ID</th>
+                  <th>CAPACITE</th>
+                  <th>ACTION</th>
                 </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {% for seat in seatMethode %}
+                  <tr>
+                    <td>{{ seat.id }}</td>
+                    <td>{{ seat.nbrSeatMax}} places</td>
+                    <td>
+                      <a href="{{path('admin_seat_edit',{id: seat.id})}}"><button class="btn" id="myButton">Modifier</button></a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </main>
     </div>
   </div>

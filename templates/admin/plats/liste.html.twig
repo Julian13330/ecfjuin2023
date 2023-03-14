@@ -7,35 +7,37 @@
     <div class="row">
       {% include "_partials/_adminnav.html.twig" %}
         <main class="col-9 border border-light bg-white p-2">
-          <h1>Liste des réservations</h1>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>CATEGORIE</th>
-                <th>TITLE</th>
-                <th>DESCRIPTION</th>
-                <th>PRIX</th>
-                <th>FAVORIS</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for meal in mealMethode %}
+        <div class="table-responsive">
+            <h1>Liste des plats</h1>
+            <table class="table table-hover">
+              <thead>
                 <tr>
-                  <td>{{ meal.id }}</td>
-                  <td>{{meal.category.title}}</td>
-                  <td>{{ meal.title }}</td>
-                  <td>{{ meal.description}}</td>
-                  <td>{{ meal.price}} €</td>
-                  {% if meal.favoris == 1 %}
-                    <td>oui </td>
-                    {% else %}
-                    <td>non</td>
-                  {% endif %}
+                  <th>ID</th>
+                  <th>CATEGORIE</th>
+                  <th>TITLE</th>
+                  <th>DESCRIPTION</th>
+                  <th>PRIX</th>
+                  <th>FAVORIS</th>
                 </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {% for meal in mealMethode %}
+                  <tr>
+                    <td>{{ meal.id }}</td>
+                    <td>{{meal.category.title}}</td>
+                    <td>{{ meal.title }}</td>
+                    <td>{{ meal.description}}</td>
+                    <td>{{ meal.price}} €</td>
+                    {% if meal.favoris == 1 %}
+                      <td>oui </td>
+                      {% else %}
+                      <td>non</td>
+                    {% endif %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </main>
     </div>
   </div>
