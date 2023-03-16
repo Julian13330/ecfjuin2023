@@ -4,8 +4,8 @@
 
 {% block body %}
 <main>
-	<div class="row">
-		<div class="col-md-12 text-center">
+	<div class="row py-5">
+		<div class="col-md-12 text-center py-4">
 			{% for menu in menuMethode %}
 				<h2>{% if menu.title == "Menu Moussaillon -10 ans" %}{{menu.title}}{% endif %}</h2>
 			{% endfor %}
@@ -22,7 +22,7 @@
 				<div>Steack haché, frites</div>
 				<div>Mousse au chocolat</div>
 		</div>
-		<div class="col-md-12 text-center">
+		<div class="col-md-12 text-center py-2">
 		{% for menu in menuMethode %}
 			<h2 class="card-title">{% if menu.title == "Menu Plaisir" %}{{menu.title}}{% endif %}</h2>
 		{% endfor %}

@@ -1,6 +1,7 @@
 nav{
   font-family: 'Rubik';
   font-size: 20px;
+  z-index: 1000;
 }
 
 body {
@@ -116,21 +117,6 @@ a{
     color: white;
     font-size: 70px;
     font-weight: bold;
-  }
-  #mouseBtn i{
-    font-size: 40px;
-    position: absolute;
-    bottom: 30px;
-    transform: translate(-50%, -50%) rotate(180deg);
-    transition: 0.5s;
-  }
-  
-  #mouseBtn i:hover {
-    color: white;
-    bottom: 30px;
-    font-size: 50px;
-    transform: translate(-50%, -50%) rotate(0deg);
-    cursor: pointer;
   }
 
   /* Admin/plats/index*/

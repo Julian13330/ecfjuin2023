@@ -1,7 +1,9 @@
 <!-- Navbar  -->
 <nav class="position-fixed navbar navbar-expand-lg navbar-dark bg-transparent w-100 text-light" id="navbarSite">
 	<div class="container-fluid">
-		<a class="navbar-brand" href={{path('app_main')}}>Le quai antique</a>
+		<a class="navbar-brand" href={{path('app_main')}}>
+			<img src={{ asset('images/logoquai.png') }} width="60" height="60">
+		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -35,14 +37,14 @@
                         <a class="nav-link" href={{path('app_compte')}}>Mon compte</a>
                     </li>#}
                     <li class="nav-item">
-                        <a class="nav-link" href={{path('app_logout')}}>Me déconnecter</a>
+                        <a class="nav-link" href={{path('app_logout')}}>Déconnexion</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path('app_register')}}">M'inscrire</a>
+                        <a class="nav-link" href="{{path('app_register')}}">Inscription</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href={{path('app_login')}}>Me Connecter</a>
+                        <a class="nav-link" href={{path('app_login')}}>Connexion</a>
                     </li>
 				{% endif %}
 			</ul>

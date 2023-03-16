@@ -60,7 +60,7 @@
             </div>
         </div>
         {# Affichage des desserts #}
-        <div class="categorie-section" data-category="desserts">
+        <div class="categorie-section py-5" data-category="desserts">
             <h1>Les Desserts</h1>
             <div class="d-flex flex-wrap">
                 {% for meal in mealMethode %}
@@ -82,30 +82,3 @@
 </main>
 {% endblock %}
 
-
-
-{#{% extends 'base.html.twig' %}
-
-{% block title %} La carte du restaurant{% endblock %}
-
-{% block body %}
-	<table class="generic-table meal-list">
-         <h1>La carte du restaurant</h1>
-         <tbody>
-         {% for meal in mealMethode %}
-             <tr>
-                 <td>
-                     <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}"
-                          alt="{{ asset(meal.title) }}">
-                 </td>
-                 <td>
-					<p>{{ meal.category.title }}</p>
-                     <strong>{{ meal.title }}</strong>
-                     <p>{{ meal.description }}</p>
-                 </td>
-                 <td class="number"><strong>{{ meal.price | number_format(2, ',', ' ') }} €</strong></td>
-             </tr>
-         {% endfor %}
-         </tbody>
-    </table>
-{% endblock %}#}
