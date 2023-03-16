@@ -19,6 +19,7 @@
                   <th>PRENOM</th>
                   <th>ALLERGIE</th>
                   <th>INVITE</th>
+                  <th>ACTION</th>
                 </tr>
               </thead>
               <tbody>
@@ -29,9 +30,11 @@
                     <td>{{users.username}}</td>
                     <td>{{users.lastname}}</td>
                     <td>{{users.firstname}}</td>
-                    {#<td>{{users.created_at}}</td>#}
                     <td>{{users.allergie}}</td>
                     <td>{{users.userGuest}}</td>
+                    <td>
+                      <a href="{{ path('admin_utilisateurs_delete', {id: users.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ users.id) }}" class="btn btn-warning" id="myButtonDelete">Supprimer</a>
+                    </td>
                   </tr>
                 {% endfor %}
               </tbody>

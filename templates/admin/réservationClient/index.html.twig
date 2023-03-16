@@ -17,6 +17,7 @@
                 <th>INVITE</th>
                 <th>HEURE</th>
                 <th>ALLERGIES</th>
+                <th>ACTION</th>
               </tr>
             </thead>
             <tbody>
@@ -28,6 +29,9 @@
                   <td>{{ reservationCompte.nbrguest}} personnes</td>
                   <td>{{ reservationCompte.hour|date('H:i:s')}}</td>
                   <td>{{ reservationCompte.mealallergy }}</td>
+                  <td>
+                    <a href="{{ path('app_compte_delete', {id: reservationCompte.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ reservationCompte.id) }}" class="btn btn-warning" id="myButtonDelete">Supprimer</a>
+                  </td>
                 </tr>
               {% endfor %}
             </tbody>
