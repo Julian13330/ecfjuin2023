@@ -4,9 +4,9 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<section class="container my-3"> 
-    <div class="row">
-        <div class="col">
+<section class="container full-width my-3"> 
+    <div class="row justify-content-center">
+        <div class="col-6 align-self-center">
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
