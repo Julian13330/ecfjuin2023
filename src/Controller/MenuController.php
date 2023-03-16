@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MenuController extends AbstractController
 {
     #[Route('/menu', name:'app_menu')]
-    public function index(MenuRepository $menuRepository,FormulaRepository $formulaRepository,OpeningTimeRepository $openingTimeRepository): Response
+    public function index(MenuRepository $menuRepository,FormulaRepository $formulaRepository,OpeningTimeRepository $openingTimeRepository, ): Response
     {
         return $this->render('menu/index.html.twig', [
             'dayMethode' => $openingTimeRepository->findAll(),

@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Les menus{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      {% include "_partials/_adminnav.html.twig" %}
+        <main class="col-9 border border-light bg-white p-2">
+        <div class="table-responsive">
+            <h1>Liste des menus</h1>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>TITLE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for menu in menuMethode %}
+                  <tr>
+                    <td>{{ menu.id }}</td>
+                    <td>{{ menu.title }}</td>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </main>
+    </div>
+  </div>
+{% endblock %}
