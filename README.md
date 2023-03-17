@@ -39,4 +39,3 @@ Modifier dans le fichier .env `DATABASE_URL=mysql://utilisateur:mot_de_passe@127
 # L'accès au mode administrateur :
 La dataFixtures "Users" va créer un utilisateur qui a le rôle administrateur. Je vous laisse vous rendre sur cette dataFixtures pour découvrir l'email et le mot de passe.
 
-Sinon, nous pouvons utiliser le terminal :
