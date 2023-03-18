@@ -119,6 +119,14 @@ a{
     font-weight: bold;
   }
 
+  /* Panneau d'administration*/
+  #headerCard {
+    background-color: #CDB4DB;
+    color: white;
+    font-weight: bold;
+  }
+
+
   /* Admin/plats/index*/
   .photoPlat{
     height: 426px;

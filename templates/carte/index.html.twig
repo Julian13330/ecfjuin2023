@@ -7,11 +7,11 @@
     {# Affichage des entrées #}
     <div class="categorie-section" data-category="entrees">
                 <h1>Les Entrées</h1>
-                <div class="d-flex flex-wrap">
+                <div class="d-flex align-content-stretch flex-wrap">
                     {% for meal in mealMethode %}
                         {% if meal.category.title == "Les entrées" %}
                             <div id="card">
-                                <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                                <img class="photoPlat img-fluid" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
                             </div>
                             <div class="card-info d-flex flex-column justify-content-center align-items-center">
                                 <h3 class="card-title">{{ meal.title }}</h3>
@@ -29,7 +29,7 @@
                 {% for meal in mealMethode %}
                     {% if meal.category.title == "Les plats mer" %}
                         <div id="card">
-                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                            <img class="photoPlat img-fluid" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
                         </div>
                         <div class="card-info d-flex flex-column justify-content-center align-items-center">
                             <h3 class="card-title">{{ meal.title }}</h3>
@@ -47,7 +47,7 @@
                 {% for meal in mealMethode %}
                     {% if meal.category.title == "Les plats terre" %}
                         <div id="card">
-                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                            <img class="photoPlat img-fluid" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
                         </div>
                         <div class="card-info d-flex flex-column justify-content-center align-items-center">
                             <h3 class="card-title">{{ meal.title }}</h3>
@@ -66,7 +66,7 @@
                 {% for meal in mealMethode %}
                     {% if meal.category.title == "Les desserts" %}
                         <div id="card">
-                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
+                            <img class="photoPlat img-fluid" src="{{ vich_uploader_asset(meal, 'imageFile') }}" alt="{{ asset(meal.title) }}">
                         </div>
                         <div class="card-info d-flex flex-column justify-content-center align-items-center">
                             <h3 class="card-title">{{ meal.title }}</h3>
