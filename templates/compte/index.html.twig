@@ -3,31 +3,35 @@
 {% block title %} Mon compte {% endblock %}
 
 {% block body %}
-  <div class="container-fluid">
+  <main class="container">
     <div class="row">
-        <main class="col-12 border border-light bg-white p-2 py-5 pt-5">
+        <div class="col-12 border border-light bg-white p-2 py-5 pt-5">
           <h1>Mon compte</h1>
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>NOM</th>
-                <th>PRENOM</th>
-                <th>ALLERGIE</th>
-                <th>EMAIL</th>
-                <th>INVITES</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
                 <tr>
-                  <td>{{ app.user.lastname }}</td>
-                  <td>{{ app.user.firstname }}</td>
-                  <td>{{ app.user.allergie }}</td>
-                  <td>{{ app.user.email }}</td>
-                  <td>{{ app.user.userGuest }}</td>
+                  <th>PSEUDO</th>
+                  <th>NOM</th>
+                  <th>PRENOM</th>
+                  <th>ALLERGIE</th>
+                  <th>EMAIL</th>
+                  <th>INVITES</th>
                 </tr>
-            </tbody>
-          </table>
-        </main>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>{{ app.user.username }}</td>
+                    <td>{{ app.user.lastname }}</td>
+                    <td>{{ app.user.firstname }}</td>
+                    <td>{{ app.user.allergie }}</td>
+                    <td>{{ app.user.email }}</td>
+                    <td>{{ app.user.userGuest }}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
     </div>
-  </div>
+  </main>
 {% endblock %}

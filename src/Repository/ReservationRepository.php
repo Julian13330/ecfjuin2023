@@ -64,7 +64,7 @@ class ReservationRepository extends ServiceEntityRepository
         ;
     }
 
-    // Compte le nombre de couverts à une date donnée du midi
+    // Nombre d'invités le midi
     public function countNbrCouvertDateMidi(string $time, string $hour ): int
     {
         $qb = $this->createQueryBuilder('r')
@@ -77,7 +77,7 @@ class ReservationRepository extends ServiceEntityRepository
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
 
-    // Compte le nombre de couverts à une date donnée pour le service du soir
+    // Nombre d'invités le soir
     public function countNbrCouvertDateSoir(string $time, string $hour): int
     {
         $qb = $this->createQueryBuilder('r')

@@ -12,10 +12,10 @@
                         {% if OpeningTime.open == true %}
 						    <li>
 								{{OpeningTime.day}}
-								{{OpeningTime.OpenSoon|date('H:i')}} h -
-								{{OpeningTime.CloseSoon|date('H:i')}} h /
-                                {{OpeningTime.OpenNight|date('H:i')}} h -
-								{{OpeningTime.CloseNight|date('H:i')}} h
+								{{OpeningTime.OpenSoon|date('H:i')}} -
+								{{OpeningTime.CloseSoon|date('H:i')}} /
+                                {{OpeningTime.OpenNight|date('H:i')}} -
+								{{OpeningTime.CloseNight|date('H:i')}}
 							</li>
                         {% else %}
                         <li>{{OpeningTime.day}} : Fermé </li>

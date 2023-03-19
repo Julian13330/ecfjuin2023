@@ -17,10 +17,11 @@
                         {{ form_row(registrationForm.lastname) }}
                         {{ form_row(registrationForm.firstname) }}
                         {{ form_row(registrationForm.email) }}
+                        <legend>Mes préférences</legend>
                         {{ form_row(registrationForm.allergie) }}
                         {{ form_row(registrationForm.userguest) }}
                     </fieldset>
-
+                        <legend>Sécurité</legend>
                     {{ form_row(registrationForm.plainPassword, {
                         label: 'Mot de passe'
                     }) }}

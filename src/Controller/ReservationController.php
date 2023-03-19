@@ -27,27 +27,29 @@ class ReservationController extends AbstractController
     {
         $entityManager = $managerRegistry->getManager();
 
-        // Récupère le nombre de convives maximum dans la salle du restaurant dans la base de données
+        // On va récupérer le nombre d'invités maximum via la table seat_max 
         $maxReservationPerDay = $seatMaxRepository->findOneBy(['NbrSeatMax' => '20']);
         $maxReservationPerDayValue = $maxReservationPerDay->getNbrSeatMax();
 
-        // Création d'une nouvelle instance de l'entité Reservations
+        // Création de la nouvelle instance Rerservation
         $reservation = new Reservation();
         $reservation->setTime(new \DateTime()); // Ajout de la date au formulaire
         $reservation->setHour(new \DateTime());// Ajout de la date au formulaire
         
-         // Récupère l'information enregistrée par défaut (Nombre de convives/allergies) par l'utilisateur connecté lors de son inscription
+         // Récupère les préférences de l'utilisateur qui est authentifié
          if($this->isGranted('IS_AUTHENTICATED_FULLY') || $this->isGranted('ROLE_ADMIN')){
             $user = $security->getUser();
             $allergieUser = $user->getAllergie();
             $nameUser = $user->getLastname();
             $nbrCouvertUser = $user->getUserGuest();
-            $reservation->setNbrGuest(intval($nbrCouvertUser)); // setNbrGuest demande un integer, mais si la valeur est null pour l'utilisateur alors cela déclenche une erreur, j'ai donc utilisé la methode intval()
+            // Utilisation de intval() car message d'erreur
+            $reservation->setNbrGuest(intval($nbrCouvertUser));
+            // Utilisation de intval() car message d'erreur
             $reservation->setMealAllergy($allergieUser);
             $reservation->setName($nameUser);
          }
 
-        // Création du formulaire et liaison avec l'entité correspondante
+        // Création du formulaire
         $formResa = $this->createForm(ReservationFormType::class, $reservation);
 
          // Recuperation des données du formulaire
@@ -61,10 +63,10 @@ class ReservationController extends AbstractController
         $reservationTime = $reservationTime->format('Y-m-d');
         $reservationHour = $reservationHour->format('H:m:s');
 
-        // Recuperation du nombre de couverts à une date sélectionnée pour le service du midi
+        // Recuperation du nombre d'invités le midi
         $nbrCouvertMidi = $reservationRepository->countNbrCouvertDateMidi($reservationTime, $reservationHour );
 
-        // Recuperation du nombre de couverts à une date sélectionnée pour le service du soir
+        // Recuperation du nombre d'invités le soir
         $nbrCouvertSoir = $reservationRepository->countNbrCouvertDateSoir($reservationTime, $reservationHour);
 
         // Vérifie si formulaire valide, et si assez de place à la date et l'heure sélectionnée
@@ -87,7 +89,7 @@ class ReservationController extends AbstractController
         elseif ($maxReservationPerDayValue < ($nbrCouvertMidi + $nbrCouvertSelectionne) || $maxReservationPerDayValue < ($nbrCouvertSoir + $nbrCouvertSelectionne) ) {
             //$this->addFlash('full', 'Il n\'y a plus de place disponible à cette date');
             //return $this->redirectToRoute('app_reservation');
-            echo "<script>alert(\"Il n'y a malheuresement plus de places pour ce créneau, merci de choisir une autre heure\")</script>";
+            echo "<script>alert(\"Il n'y a malheuresement plus de places pour ce créneau horaire, merci de choisir une autre heure\")</script>";
             //return $this->json(['code' => 200, 'message' => 'ca marche bien'], 200);
             //$flash = 'Erreur plus de places disponibles';
             //header('Content-Type: application/json');

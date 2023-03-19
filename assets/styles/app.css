@@ -88,6 +88,10 @@ a{
     padding: 16px 32px;
 }
 
+.phrase {
+  font-style: italic;
+}
+
 /* Le partial photo du site*/
 
 #firstRowHomePage {
@@ -103,11 +107,12 @@ a{
     background-color: #09090988;
     margin-top: -100px;
   }
-  .Description {
+  .description {
     max-width: 550px;
     margin:15px auto;
     font-size: 22px;
     color: white;
+    font-style: italic;
   }
   .text-bienvenue {
     font-size: 35px;
