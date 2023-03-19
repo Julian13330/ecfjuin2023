@@ -90,6 +90,24 @@ a{
 
 .phrase {
   font-style: italic;
+  color: #FFC8DD;
+  text-align: center;
+}
+.parallax {
+  /* The image used */
+  background-image: url("../../public/images/parallax.jpg");
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#effetParallax {
+    background-color: #49494988;
 }
 
 /* Le partial photo du site*/
