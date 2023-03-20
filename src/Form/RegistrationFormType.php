@@ -47,9 +47,9 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Prénom'
             ])
             ->add('allergie', ChoiceType::class, [
-                'required' => false,
                 'label' => 'Avez-vous des allergies alimentaires ?',
                 'choices' => [
+                    'Aucune' => 'Aucune',
                     'Lait'=>'Lait',
                     'Gluten'=>'Gluten',
                     'Poisson'=>'Poisson',
@@ -57,7 +57,7 @@ class RegistrationFormType extends AbstractType
                     'Noix'=>'Noix',
                     'Arachide'=>'Arachide',
                     'Oeuf'=>'Oeuf',
-                    'autres'=>'autres'
+                    'Autre'=>'Autre'
                 ],
                 ])
             ->add('userguest',IntegerType::class,[
