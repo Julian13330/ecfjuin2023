@@ -24,25 +24,23 @@
 		<!-- Attention, emplacement de assets js scripts. js defer voir new techno -->
 	</head>
 	<body>
-			<header>
-        {% include "_partials/_nav.html.twig" %}
-				<!-- Permet les messages de succès lors d'interaction avec la bdd -->
-				{% for message in app.flashes('success') %}
-					<div class="alert alert-success">
-						{{ message }}
-					</div>
-				{% endfor %}
-				{% include "_partials/_photoSiteAdmin.html.twig" %}
-			</header>
-				<!-- Permet les messages de succès lors d'interaction avec la bdd -->
-				{% for message in app.flashes('success') %}
-					<div class="alert alert-success">
-						{{ message }}
-					</div>
-				{% endfor %}
-
+		<header>
+      {% include "_partials/_nav.html.twig" %}
+			<!-- Permet les messages de succès lors d'interaction avec la bdd -->
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			{% endfor %}
+			{% include "_partials/_photoSiteAdmin.html.twig" %}
+		</header>
+			<!-- Permet les messages de succès lors d'interaction avec la bdd -->
+			{% for message in app.flashes('success') %}
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			{% endfor %}
 		{% block body %}{% endblock %}
-
-        {% include "_partials/_footer.html.twig" %}
+    {% include "_partials/_footer.html.twig" %}
 	</body>
 </html>

@@ -10,7 +10,7 @@
                 {% else %}
                     <h1>Nous vous souhaitons la bienvenue dans notre univers gastronomique !</h1>
 				{% endif %}
-		 <div class="gallerie">
+	<div class="gallerie">
             {% for meal in mealMethode %}
                 {% if meal.favoris == true %}
                     <div class="photo-item m-2">
@@ -21,15 +21,19 @@
                     </div>
                 {% endif %}
             {% endfor %}
-      </div>
-	</div>
-    <div class="row text-center mb-3">
-        <a href={{path('app_reservation')}}><button type="button" class="btn" id="myButton"><i class="bi bi-book"></i>
-            Réserver une table</button></a>
-    </div>
-    <div class="parallax row row-cols-1">
-        <div class="d-flex justify-content-center flex-column text-center" id="effetParallax">
-            <h2 class="justify-content-center phrase">"Découvrez un lieu unique, notre personnel vous accueille avec le sourire et la bonne humeur pour vous offrir un moment de détente"</h2>
+        </div>
+        </div>
+        <div class="row text-center mb-3">
+            <a href={{path('app_reservation')}}><button type="button" class="btn" id="myButton"><i class="bi bi-book"></i>
+                Réserver une table</button></a>
+        </div>
+        <div class="parallax row row-cols-1">
+            <div class="d-flex justify-content-center flex-column text-center" id="effetParallax">
+                <h2 class="justify-content-center phrase">"Découvrez un lieu unique, 
+                    notre personnel vous accueille avec le sourire et la bonne humeur 
+                    pour vous offrir un moment de détente"
+                </h2>
+            </div>
         </div>
     </div>
 </main>		

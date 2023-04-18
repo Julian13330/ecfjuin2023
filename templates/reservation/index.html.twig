@@ -13,9 +13,10 @@
                 <div class="col-md-6">{{ form_row(formResa.hour)}}</div>
                 <div class="col-md-6">{{ form_row(formResa.nbrguest)}}</div>
                 <div class="col-md-6">{{ form_row(formResa.meal_allergy)}}</div>
-                <a href="{{path('app_reservation')}}" class="js-like">
-                    <button type="submit" class="btn btn-dark mb-3">{{ button_label|default('Réserver') }}</button>
+                <a href="{{path('app_reservation')}}" class="js-likes">
+                <button type="submit" class="btn btn-dark mb-3">{{ button_label|default('Réserver') }}</button>
                 </a>
+                <p class="alert"></p>
             </div>
         {{ form_end(formResa) }}
     </div>
@@ -24,22 +25,49 @@
 {% endblock %}
 
 {% block javascripts %}
+
+    {#
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script>
+
+    function showData(randomNumber)
+    {
+        $.ajax({
+            type:"POST",
+            url: "http://127.0.0.1:8000/reservation",
+            data: {
+                action:"showData",
+                number: randomNumber
+            },
+            dataType: "json",
+            success: function (response) {
+                $("#message").html(response.message);
+            }
+        });
+    }
+
+
+    </script>#}
+
     {#<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
 
         function onClickBtn(event){
             event.preventDefault();
 
-            const url = this.href;
+            const url = window.location.href;
 
             axios.get(url).then(function (response) {
                 console.log(response);
+                document.querySelector('.alert').textContent = "plus de places";
             })
         }
-
-        document.querySelectorAll('js-like').forEach(function(link){
+        window.onload = function() {
+            document.querySelectorAll('.js-likes').forEach(function(link){
             link.addEventListener('click', onClickBtn);
         })
+}
     </script>#}
+
 {% endblock %}
 

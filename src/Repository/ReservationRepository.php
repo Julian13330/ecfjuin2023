@@ -67,14 +67,14 @@ class ReservationRepository extends ServiceEntityRepository
     // Nombre d'invités le midi
     public function countNbrCouvertDateMidi(string $time, string $hour ): int
     {
-        $qb = $this->createQueryBuilder('r')
-            ->select('SUM(r.nbrGuest)')
-            ->where('r.time = :time')
-            ->andWhere('r.hour < :hour')
+        $qb = $this->createQueryBuilder('r') // ma table réservation
+            ->select('SUM(r.nbrGuest)') // Le total des invités par réservation
+            ->where('r.time = :time') // par date
+            ->andWhere('r.hour < :hour') // par créneau horaire
             ->setParameter('time', $time)
             ->setParameter('hour', $hour);
 
-        return (int) $qb->getQuery()->getSingleScalarResult();
+        return (int) $qb->getQuery()->getSingleScalarResult(); // Obtenir un seul résultat
     }
 
     // Nombre d'invités le soir
@@ -87,6 +87,6 @@ class ReservationRepository extends ServiceEntityRepository
             ->setParameter('time', $time)
             ->setParameter('hour', $hour);
 
-        return (int) $qb->getQuery()->getSingleScalarResult();
+        return (int) $qb->getQuery()->getSingleScalarResult(); // Obtenir un seul résultat
     }
 }

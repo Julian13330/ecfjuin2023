@@ -46,7 +46,6 @@ class Meal
 
     public function __construct()
     {
-       
     }
 
     public function getId(): ?int
@@ -163,5 +162,4 @@ class Meal
 
         return $this;
     }
-   
 }

@@ -23,14 +23,12 @@
 				</li>
 			</ul>
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
 				{# Nav lorsque l'admin se connecte #}
 				{% if is_granted('ROLE_ADMIN') %}
 				<li class="nav-item">
-				 	<a class="nav-link" href={{path('admin_index')}}><b id="panelAdmin">Panneau d'administration</b></a>
+				<a class="nav-link" href={{path('admin_index')}}><b id="panelAdmin">Panneau d'administration</b></a>
 				</li>
 				{% endif %}
-
 				{# Nav lorsque l'utilisateur se connecte #}
 				{% if app.user %}
                     <li class="nav-item">

@@ -25,6 +25,7 @@ class Reservation
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $time = null;
 
+    #[Assert\Positive]
     #[ORM\Column]
     private ?int $nbrGuest = null;
 

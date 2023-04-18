@@ -17,6 +17,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 
+//const HTTP_OK = 200;
+//const HTTP_BAD_REQUEST = 400;
+//const HTTP_METHOD_NOT_ALLOWED = 405;
+
 
 class ReservationController extends AbstractController
 {   
@@ -91,10 +95,53 @@ class ReservationController extends AbstractController
             //return $this->redirectToRoute('app_reservation');
             echo "<script>alert(\"Il n'y a malheuresement plus de places pour ce créneau horaire, merci de choisir une autre heure\")</script>";
             //return $this->json(['code' => 200, 'message' => 'ca marche bien'], 200);
-            //$flash = 'Erreur plus de places disponibles';
-            //header('Content-Type: application/json');
-            //echo json_encode($flash);
-            //return $this->json(['code' => 200, 'message' => 'plus de place'], 200);
+            // A afficher !$flash = 'Plus de places disponibles';
+            //A afficher !header('Content-Type: application/json');
+            //A afficher ! echo json_encode($flash);
+            //return $this->json(['code' => 200, 'message' => $flash], 200);
+
+            
+           // if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUESTED_WITH']) == 'XMLHTTPREQUEST')
+            //{
+                //$response_code = HTTP_BAD_REQUEST;
+                //$message = "Il manque le paramètre ACTION!";
+
+                //if ($_POST['action'] == "showData" && isset($_POST['number']))
+                //{
+                    //$response_code = HTTP_OK;
+                    //$number = $_POST['number'];
+                    //$message = "<h5>Bon score ! </h5>";
+
+                    //if ($number < 5){
+                        //$message = "<h5>Mauvais score</h5>";
+                    //}
+                //}
+
+                //response($response_code, $message, $number);
+           // }
+            //else
+           // {
+                //$response_code = HTTP_METHOD_NOT_ALLOWED;
+                //$message = "Méthode not allowed!";
+                
+                //response($response_code, $message);
+          //  }
+
+           // function response($response_code, $response, $number = null)
+           // {
+               // header('Content-Type: application/json');
+              //  http_response_code($response_code);
+
+               // $response = [
+                   // "response_code" => $response_code,
+                   // "message" => $response,
+                   // "number" => $number
+              //  ];
+
+               // echo json_encode($response);
+           // }
+
+
         }
         // On retourne le rendu twig auquel on passe les produits de la carte et le formulaire
         return $this->render('reservation/index.html.twig', [
