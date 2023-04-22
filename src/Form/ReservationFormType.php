@@ -42,6 +42,7 @@ class ReservationFormType extends AbstractType
                 'required' => false,
                 'label' => 'Avez-vous des allergies alimentaires ?',
                 'choices' => [
+                    'Aucune'=>'Aucune',
                     'Lait'=>'Lait',
                     'Gluten'=>'Gluten',
                     'Poisson'=>'Poisson',
