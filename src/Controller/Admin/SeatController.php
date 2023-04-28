@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Form\SeatMaxFormType;
 use App\Entity\SeatMax;
+use App\Entity\Restaurant;
+use App\Repository\RestaurantRepository;
 use App\Repository\SeatMaxRepository;
 use App\Repository\OpeningTimeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,11 +18,13 @@ use Doctrine\ORM\EntityManagerInterface;
 class SeatController extends AbstractController
 {
   #[Route('/', name:'index')]
-  public function index(OpeningTimeRepository $openingTimeRepository,SeatMaxRepository $seatMaxRepository): Response
+  public function index(OpeningTimeRepository $openingTimeRepository,SeatMaxRepository $seatMaxRepository,RestaurantRepository $restaurantRepository): Response
   {
     return $this->render('admin/seat/index.html.twig', [
       'dayMethode' => $openingTimeRepository->findAll(),
-      'seatMethode' => $seatMaxRepository->findAll()
+      'seatMethode' => $seatMaxRepository->findAll(),
+      'restauMethode' => $restaurantRepository->findAll()
+
     ]);
   }
 

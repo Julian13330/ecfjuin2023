@@ -9,6 +9,9 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Bridge\Doctrine\Types\UuidType;
+use Symfony\Component\Uid\Uuid;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\Entity(repositoryClass: MealRepository::class)]
@@ -16,9 +19,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Meal
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: UuidType::NAME, unique: true)]
+    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    private $id;
 
     #[ORM\Column(length: 100)]
     private ?string $title = null;
@@ -32,6 +36,7 @@ class Meal
     #[ORM\Column(type: 'string')]
     private ?string $imageName = null;
 
+    #[Assert\Positive]
     #[ORM\Column]
     private ?int $price = null;
 
@@ -48,7 +53,7 @@ class Meal
     {
     }
 
-    public function getId(): ?int
+    public function getId(): ?Uuid
     {
         return $this->id;
     }
