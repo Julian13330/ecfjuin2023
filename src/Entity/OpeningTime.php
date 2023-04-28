@@ -19,7 +19,9 @@ class OpeningTime
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\Uuid]
+    /**
+     * @Assert\Length(max=30)
+     */
     #[ORM\Column(length: 30)]
     private ?string $day = null;
 

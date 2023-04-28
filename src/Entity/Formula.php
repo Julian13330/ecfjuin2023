@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FormulaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: FormulaRepository::class)]
 class Formula
@@ -13,12 +14,19 @@ class Formula
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @Assert\Length(max=100)
+     */
     #[ORM\Column(length: 100)]
     private ?string $title = null;
 
+    /**
+     * @Assert\Length(max=255)
+     */
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[Assert\Positive]
     #[ORM\Column]
     private ?int $price = null;
 
