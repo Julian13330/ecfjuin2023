@@ -32,8 +32,17 @@ a{
   background-color: #2da0ba;
   color: white;
 }
+#myButton:hover {
+  transform: scale(1.05);
+}
+
 #myButtonDelete {
   background-color: #FFC8DD;
+}
+
+/* Logo */
+.navbar-brand:hover {
+  transform: scale(1.05);
 }
 
 /* La page Main*/
@@ -100,7 +109,7 @@ a{
   /* Set a specific height */
   min-height: 500px; 
 
-  /* Create the parallax scrolling effect */
+  /* Créer un parallax avec effet sur le scroll */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -167,3 +176,4 @@ a{
     height: 426px;
     transition: transform 0.3s;
 }
+

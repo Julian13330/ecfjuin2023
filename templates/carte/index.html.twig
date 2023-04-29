@@ -4,6 +4,15 @@
 
 {% block body %}
 <main class="full-width mb-3">
+
+    <div class="container d-flex flex-column justify-content-center align-items-center mb-4 mt-4">
+        <div class="button-list mt-5 mb-4 w-100 d-flex justify-content-evenly">
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="all" >Tout</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="entrees">Entrées</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="plats mer">Plats mer</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="plats terre">Plats terre</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="desserts">Desserts</button>
+        </div>
     {# Affichage des entrées #}
     <div class="categorie-section" data-category="entrees">
                 <h1>Les Entrées</h1>
@@ -25,7 +34,7 @@
         {# Affichage des plats mer #}
         <div class="categorie-section" data-category="plats mer">
             <h1>Les Plats mer</h1>
-            <div class="d-flex flex-wrap">
+            <div class="d-flex align-content-stretch flex-wrap">
                 {% for meal in mealMethode %}
                     {% if meal.category.title == "Les plats mer" %}
                         <div id="card">
@@ -43,7 +52,7 @@
 {# Affichage des plats terre #}
         <div class="categorie-section" data-category="plats terre">
             <h1>Les Plats terre</h1>
-            <div class="d-flex flex-wrap">
+            <div class="d-flex align-content-stretch flex-wrap">
                 {% for meal in mealMethode %}
                     {% if meal.category.title == "Les plats terre" %}
                         <div id="card">
@@ -62,7 +71,7 @@
         {# Affichage des desserts #}
         <div class="categorie-section py-5" data-category="desserts">
             <h1>Les Desserts</h1>
-            <div class="d-flex flex-wrap">
+            <div class="d-flex align-content-stretch flex-wrap">
                 {% for meal in mealMethode %}
                     {% if meal.category.title == "Les desserts" %}
                         <div id="card">

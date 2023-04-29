@@ -1,5 +1,5 @@
 <!-- Navbar  -->
-<nav class="position-fixed navbar navbar-expand-lg navbar-dark bg-transparent w-100 text-light" id="navbarSite">
+<nav class="position-fixed navbar navbar-expand-lg navbar-dark bg-transparent w-100 text-light {{ app.session.flashbag.peek('success')|length > 0 ? '' : 'mb-5' }}" id="navbarSite">
 	<div class="container-fluid">
 		<a class="navbar-brand" href={{path('app_main')}}>
 			<img src={{ asset('images/logoquai.png') }} width="60" height="60">
