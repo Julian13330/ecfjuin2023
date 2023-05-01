@@ -12,7 +12,6 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>CATEGORIE</th>
                   <th>TITRE</th>
                   <th>DESCRIPTION</th>
@@ -23,7 +22,6 @@
               <tbody>
                 {% for meal in mealMethode %}
                   <tr>
-                    <td>{{ meal.id }}</td>
                     <td>{{meal.category.title}}</td>
                     <td>{{ meal.title }}</td>
                     <td>{{ meal.description}}</td>
