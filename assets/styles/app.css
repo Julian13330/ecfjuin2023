@@ -178,3 +178,60 @@ a{
     transition: transform 0.3s;
 }
 
+.img-card {
+  display: block;
+  height: 300px;
+  min-width: 100%;
+
+
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  min-width: 100%;
+  min-height: 50%;
+
+}
+
+.menu-title {
+  min-width: 100%;
+  min-height: 50%;
+  padding: unset;
+}
+
+
+#card:hover {
+transform: scale(1.03); /* Scale the card up slightly on hover */
+}
+
+.img-card {
+display: block;
+height: 100%;
+width: 50%;
+
+}
+
+.card-info {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+width: 50%;
+height: auto;
+}
+
+h3 {
+font-weight: normal;
+
+}
+
+.description {
+font-style: italic;
+color: darkgray;
+text-align: center;
+}
+
