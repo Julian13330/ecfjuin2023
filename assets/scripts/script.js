@@ -18,22 +18,26 @@ window.onscroll=function(){
 
 // Système de filtre par catégorie pour les plâts
 
-// QuerySelectorAll sur mes bouttons
+// récupère-les buttons
 const filterButtons = Array.from(document.querySelectorAll('.btn-filter'));
 
-// Listener
+// event listener
 filterButtons.forEach(button => {
     button.addEventListener('click', e => {
-        // Prend la valeur de data.filter
+        // récupère la valeur de l'attribut data-filter du button
         const filter = e.target.dataset.filter;
-        // Récupère par catégorie
+        // récupère-les elements à modifier par la suite
         const items = document.querySelectorAll('.categorie-section');
 
-        // Afficher tout les plats
+
+        // tout afficher si all est sélectionné
         if (filter === 'all') {
             items.forEach(item => item.style.display = 'block');
         } else {
-            // Afficher les plats sélectionné
+            // sinon cacher tous les éléments
+            items.forEach(item => item.style.display = 'none');
+
+            // et ne montrer que celui qui est sélectionné
             document.querySelectorAll(`[data-category="${filter}"]`).forEach(item => item.style.display = 'block');
         }
     });
