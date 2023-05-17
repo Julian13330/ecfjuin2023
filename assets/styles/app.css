@@ -159,13 +159,13 @@ a{
   }
 
 
-  /* Admin/plats/index*/
-  /*.photoPlat{
+  /* Toutes les photos des plats*/
+  .photoPlat{ 
     height: 426px;
     width: 640px;
   }
-
-  /* La carte/index.html.twig 
+  /*
+  La carte/index.html.twig 
   #card {
     display: flex;
     flex-direction: row;
@@ -176,6 +176,7 @@ a{
     height: 426px;
     transition: transform 0.3s;
 }
+
 @media screen and (max-width: 610px) {
   #card {
       display: flex;
@@ -189,7 +190,7 @@ a{
       height: 426px;
       transition: transform 0.3s;
   }
-
+/*
   .img-card {
       display: block;
       height: 300px;
@@ -218,9 +219,8 @@ a{
 
 
 #card:hover {
-  transform: scale(1.03); /* Scale the card up slightly on hover 
+  transform: scale(1.03); 
 }
-
 .img-card {
   display: block;
   height: 100%;
