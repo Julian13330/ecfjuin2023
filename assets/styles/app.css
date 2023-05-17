@@ -160,12 +160,12 @@ a{
 
 
   /* Admin/plats/index*/
-  .photoPlat{
+  /*.photoPlat{
     height: 426px;
     width: 640px;
   }
 
-  /* La carte/index.html.twig */
+  /* La carte/index.html.twig 
   #card {
     display: flex;
     flex-direction: row;
@@ -185,8 +185,8 @@ a{
       margin: 20px auto;
       -webkit-box-shadow: 1px 1px 9px -3px #C2C2C2;
       box-shadow: 1px 1px 9px -3px #C2C2C2;
-      width: 350px;
-      height: 600px;
+      width: 640px;
+      height: 426px;
       transition: transform 0.3s;
   }
 
@@ -218,7 +218,7 @@ a{
 
 
 #card:hover {
-  transform: scale(1.03); /* Scale the card up slightly on hover */
+  transform: scale(1.03); /* Scale the card up slightly on hover 
 }
 
 .img-card {
@@ -235,4 +235,4 @@ a{
   padding: 10px;
   width: 50%;
   height: auto;
-}
+}*/
