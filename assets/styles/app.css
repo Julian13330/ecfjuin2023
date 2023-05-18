@@ -164,41 +164,14 @@ a{
     height: 426px;
     width: 640px;
   }
-  /*
-  La carte/index.html.twig 
-  #card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    -webkit-box-shadow: 1px 1px 9px -3px #8f8f8f;
-    box-shadow: 1px 1px 9px -3px #8f8f8f;
-    width: 640px;
-    height: 426px;
-    transition: transform 0.3s;
-}
+  
 
-@media screen and (max-width: 610px) {
-  #card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-wrap: nowrap;
-      margin: 20px auto;
-      -webkit-box-shadow: 1px 1px 9px -3px #C2C2C2;
-      box-shadow: 1px 1px 9px -3px #C2C2C2;
-      width: 640px;
-      height: 426px;
-      transition: transform 0.3s;
-  }
-/*
+@media screen and (max-width: 860px) {
   .img-card {
       display: block;
       height: 300px;
       min-width: 100%;
-
-
   }
-
   .card-info {
       display: flex;
       flex-direction: column;
@@ -207,7 +180,6 @@ a{
       padding: 10px;
       min-width: 100%;
       min-height: 50%;
-
   }
 
   .menu-title {
@@ -235,4 +207,13 @@ a{
   padding: 10px;
   width: 50%;
   height: auto;
-}*/
+}
+
+table {
+  width: 100%;
+  }
+  th, td {
+  padding: 10px;
+  text-align: center;
+  }
+

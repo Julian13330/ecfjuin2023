@@ -3,14 +3,14 @@
 {% block title %}La Carte{% endblock %}
 
 {% block body %}
-<main class="full-width">
+<main class="container full-width">
     <div>
         <div class="button-list mt-5 mb-4 w-100 d-flex justify-content-evenly">
             <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="all" >tout</button>
-            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="entree">entrées</button>
-            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="plats mer">plats mer</button>
-            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="plats terre">plats terre</button>
-            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="desserts">desserts</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="entree">Les entrées</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="plats mer">Les plats mer</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="plats terre">Les plats terre</button>
+            <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="desserts">Les desserts</button>
         </div>
         {# Affichage des entrées #}
         <div class="categorie-section" data-category="entree">
