@@ -17,6 +17,10 @@ security:
             lazy: true
             provider: app_user_provider
             custom_authenticator: App\Security\UserAuthenticator
+            # Permet d'avoir un maximum de 3 tentatives de connexion pour la sécurité du site
+            login_throttling:
+                max_attempts: 3
+                interval: '60 minutes'
             logout:
                 path: app_logout
                 # where to redirect after logout
