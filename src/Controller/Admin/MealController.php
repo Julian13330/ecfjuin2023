@@ -53,12 +53,11 @@ class MealController extends AbstractController
             if(!$meal->getId()){
                 $EntityManager->persist($meal);
             }
-
+            //on persiste les données
             $EntityManager->flush();
             $this->addFlash('success', 'Plat modifié avec succès');
             return $this->redirectToRoute('app_main');
     
-           
     }
             return $this->render('admin/plats/ajout.html.twig', [
                 'mealForm' => $mealForm->createView(),
@@ -69,7 +68,7 @@ class MealController extends AbstractController
 
     // Modifier un plat
   #[Route('/{id}', name: 'edit')]
-    public function edit(MealRepository $mealRepository,Meal $meal,OpeningTimeRepository $openingTimeRepository, EntityManagerInterface $EntityManager,Request $request): Response
+    public function edit(MealRepository $mealRepository,Meal $meal,OpeningTimeRepository $openingTimeRepository,EntityManagerInterface $EntityManager,Request $request): Response
     {   
         
         if(!$meal){
