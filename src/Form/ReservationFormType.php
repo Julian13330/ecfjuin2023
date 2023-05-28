@@ -39,7 +39,6 @@ class ReservationFormType extends AbstractType
         )
             ->add('nbrguest', IntegerType::class, ['label' => 'Nombre d\'invités', 'attr' => ['min' => 1, 'max' => 20]])
             ->add('meal_allergy',ChoiceType::class, [
-                'required' => false,
                 'label' => 'Avez-vous des allergies alimentaires ?',
                 'choices' => [
                     'Aucune'=>'Aucune',
@@ -50,7 +49,7 @@ class ReservationFormType extends AbstractType
                     'Noix'=>'Noix',
                     'Arachide'=>'Arachide',
                     'Oeuf'=>'Oeuf',
-                    'autres'=>'autres'
+                    'Autres'=>'Autres'
                 ],
                 ])
            // ->add('users')
