@@ -3,7 +3,6 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    
     <main class="container">
         <div class="row">
             <div class="col">
@@ -24,9 +23,24 @@
                         label: 'Mot de passe'
                     }) }}
                     {{ form_row(registrationForm.RGPDConsent) }}
-                    <button type="submit" class="btn btn-primary btn-lg my-3">M'inscire</button>
-                    <a href="{{ path('app_login') }}" class="btn btn-secondary">Me connecter</a>
-                {{ form_end(registrationForm) }}
+                    {# Modal pour Les mentions légales #}
+                    <!-- Trigger/Open The Modal -->
+                    <button id="myBtn">Les informations légals</button>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>Les informations recueillies sur ce formulaire sont enregistrées dans un fichier informatisé par Julian Calegari pour la formation de développeur web. Les données seront traitées que pour un examen.
+                            Vous pouvez accéder aux données vous concernant dans l'onglet "mon compte".Si vous estimez, après nous avoir contactés, que vos droits « Informatique et Libertés » ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL.</p>
+                        </div>
+                    </div>
+                    {# M'inscrire ou me connecter #}
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-lg my-3">M'inscire</button>
+                        <a href="{{ path('app_login') }}" class="btn btn-secondary">Me connecter</a>
+                        {{ form_end(registrationForm) }}
+                    </div>
             </div>
         </div>
     </main>
