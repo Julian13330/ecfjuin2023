@@ -15,21 +15,21 @@ class CategoryFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-         $entrée = new Category();
-         $entrée->setTitle('Les entrées');
-         $manager->persist($entrée);
+        $entrée = new Category();
+        $entrée->setTitle('Les entrées');
+        $manager->persist($entrée);
         
-         $mer = new Category();
-         $mer->setTitle('Les plats mer');
-         $manager->persist($mer);
+        $mer = new Category();
+        $mer->setTitle('Les plats mer');
+        $manager->persist($mer);
 
-         $terre = new Category();
-         $terre->setTitle('Les plats terre');
-         $manager->persist($terre);
+        $terre = new Category();
+        $terre->setTitle('Les plats terre');
+        $manager->persist($terre);
 
-         $dessert = new Category();
-         $dessert->setTitle('Les desserts');
-         $manager->persist($dessert);
+        $dessert = new Category();
+        $dessert->setTitle('Les desserts');
+        $manager->persist($dessert);
 
         $manager->flush();
 

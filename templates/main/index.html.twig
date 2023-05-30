@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <main class="mb-3">
-                
-	<div class="container d-flex flex-column justify-content-center align-items-center mb-4">
-                {% if is_granted('ROLE_ADMIN') %}
-                <div class="d-flex justify-content-center flex-column text-center pt-5 py-5">
-                    <a href={{path('admin_index')}}><button class="btn btn-dark mb-3">Accès à votre espace d'administration </button></a>
-                </div>
-                {% else %}
-                    <h1>Nous vous souhaitons la bienvenue dans notre univers gastronomique !</h1>
-				{% endif %}
-	<div class="gallerie">
+    <div class="container d-flex flex-column justify-content-center align-items-center mb-4">
+        <!-- Si je suis admin, bouton pour accéder au dashboard admin -->
+        {% if is_granted('ROLE_ADMIN') %}
+            <aside class="d-flex justify-content-center flex-column text-center pt-5 py-5">
+                <a href={{path('admin_index')}}><button class="btn btn-dark mb-3">Accès à votre espace d'administration </button></a>
+            </aside>
+            {% else %}
+            <h1>Nous vous souhaitons la bienvenue dans notre univers gastronomique !</h1>
+		{% endif %}
+        <!-- Gallerie images des plats et effet au survol dessus en css et affichage du nom des plats -->
+	    <section class="gallerie">
             {% for meal in mealMethode %}
                 {% if meal.favoris == true %}
                     <div class="photo-item m-2">
@@ -21,20 +22,22 @@
                     </div>
                 {% endif %}
             {% endfor %}
+        </section>
         </div>
-        </div>
+        <!-- Le bouton pour réserver une table -->
         <div class="row text-center mb-3">
             <a href={{path('app_reservation')}}><button type="button" class="btn" id="myButton"><i class="bi bi-book"></i>
                 Réserver une table</button></a>
         </div>
-        <div class="parallax row row-cols-1">
+        <!-- Section photo avec effet parallax et une phrase d'accueil -->
+        <section class="parallax row row-cols-1">
             <div class="d-flex justify-content-center flex-column text-center" id="effetParallax">
                 <h2 class="justify-content-center phrase">"Découvrez un lieu unique, 
                     notre personnel vous accueille avec le sourire et la bonne humeur 
                     pour vous offrir un moment de détente"
                 </h2>
             </div>
-        </div>
+        </section>
     </div>
 </main>		
 {% endblock %}

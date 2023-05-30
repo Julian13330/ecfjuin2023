@@ -3,35 +3,36 @@
 {% block title %} Mon compte {% endblock %}
 
 {% block body %}
-  <main class="container">
-    <div class="row">
+<main class="container">
+    <article class="row">
         <div class="col-12 border border-light bg-white p-2 py-5 pt-5">
-          <h1>Mon compte</h1>
-          <div class="table-responsive">
+        <h1>Mon compte</h1>
+        <!-- Tableau qui affichage les informations de l'utilisateur -->
+        <div class="table-responsive">
             <table class="table table-hover">
-              <thead>
+            <thead>
                 <tr>
-                  <th>PSEUDO</th>
-                  <th>NOM</th>
-                  <th>PRENOM</th>
-                  <th>ALLERGIE</th>
-                  <th>EMAIL</th>
-                  <th>INVITES</th>
+                <th>PSEUDO</th>
+                <th>NOM</th>
+                <th>PRENOM</th>
+                <th>ALLERGIE</th>
+                <th>EMAIL</th>
+                <th>INVITES</th>
                 </tr>
-              </thead>
-              <tbody>
-                  <tr>
+            </thead>
+            <tbody>
+                <tr>
                     <td>{{ app.user.username }}</td>
                     <td>{{ app.user.lastname }}</td>
                     <td>{{ app.user.firstname }}</td>
                     <td>{{ app.user.allergie }}</td>
                     <td>{{ app.user.email }}</td>
                     <td>{{ app.user.userGuest }}</td>
-                  </tr>
-              </tbody>
+                </tr>
+            </tbody>
             </table>
-          </div>
         </div>
-    </div>
-  </main>
+        </div>
+    </article>
+</main>
 {% endblock %}

@@ -10,9 +10,9 @@ class SeatMaxFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-         $maxSeat = new SeatMax();
-         $maxSeat ->setNbrSeatMax(20);
-         $manager->persist($maxSeat);
+        $maxSeat = new SeatMax();
+        $maxSeat ->setNbrSeatMax(20);
+        $manager->persist($maxSeat);
 
         $manager->flush();
     }

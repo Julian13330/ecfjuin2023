@@ -3,44 +3,44 @@
 {% block title %}Listes des utilisateurs{% endblock %}
 
 {% block body %}
-  <div class="container">
+<main class="container">
     <div class="row">
-      {% include "_partials/_adminnav.html.twig" %}
-        <main class="col-9 border border-light bg-white p-2">
-          <div class="table-responsive">
+    {% include "_partials/_adminnav.html.twig" %}
+    <div class="col-9 border border-light bg-white p-2">
+        <div class="table-responsive">
             <h1>Listes des utilisateurs</h1>
             <table class="table table-hover">
-              <thead>
+            <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>EMAIL</th>
-                  <th>PSEUDO</th>
-                  <th>NOM</th>
-                  <th>PRENOM</th>
-                  <th>ALLERGIE</th>
-                  <th>INVITE</th>
-                  <th>ACTION</th>
+                <th>ID</th>
+                <th>EMAIL</th>
+                <th>PSEUDO</th>
+                <th>NOM</th>
+                <th>PRENOM</th>
+                <th>ALLERGIE</th>
+                <th>INVITE</th>
+                <th>ACTION</th>
                 </tr>
-              </thead>
-              <tbody>
-                {% for users in users %}
-                  <tr>
-                    <td>{{users.id}}</td>
-                    <td>{{users.email}}</td>
-                    <td>{{users.username}}</td>
-                    <td>{{users.lastname}}</td>
-                    <td>{{users.firstname}}</td>
-                    <td>{{users.allergie}}</td>
-                    <td>{{users.userGuest}}</td>
-                    <td>
-                      <a href="{{ path('admin_utilisateurs_delete', {id: users.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ users.id) }}" class="btn btn-warning" id="myButtonDelete">Supprimer</a>
-                    </td>
-                  </tr>
-                {% endfor %}
-              </tbody>
+            </thead>
+            <tbody>
+            {% for users in users %}
+            <tr>
+                <td>{{users.id}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.username}}</td>
+                <td>{{users.lastname}}</td>
+                <td>{{users.firstname}}</td>
+                <td>{{users.allergie}}</td>
+                <td>{{users.userGuest}}</td>
+                <td>
+                    <a href="{{ path('admin_utilisateurs_delete', {id: users.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ users.id) }}" class="btn btn-warning" id="myButtonDelete">Supprimer</a>
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
             </table>
-          </div>
-        </main>
+        </div>
     </div>
-  </div>
+    </div>
+</main>
 {% endblock %}

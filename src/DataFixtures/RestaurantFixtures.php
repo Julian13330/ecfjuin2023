@@ -10,10 +10,10 @@ class RestaurantFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-         $QuaiAntiqueLyon = new Restaurant();
-         $QuaiAntiqueLyon->setName("Le Quai Antique Lyon");
+        $QuaiAntiqueLyon = new Restaurant();
+        $QuaiAntiqueLyon->setName("Le Quai Antique Lyon");
 
-         $manager->persist($QuaiAntiqueLyon);
+        $manager->persist($QuaiAntiqueLyon);
 
         $manager->flush();
     }

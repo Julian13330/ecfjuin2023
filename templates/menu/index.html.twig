@@ -4,8 +4,9 @@
 
 {% block body %}
 <main>
-	<div class="row py-5">
-		<div class="col-md-12 text-center py-4">
+	<article class="row py-5">
+		<!-- Menu 1 -->
+		<section class="col-md-12 text-center py-4">
 			{% for menu in menuMethode %}
 				<h2>{% if menu.title == "Menu Moussaillon -10 ans" %}{{menu.title}}{% endif %}</h2>
 			{% endfor %}
@@ -21,25 +22,26 @@
 			{% endfor %}
 				<div>Steack haché, frites</div>
 				<div>Mousse au chocolat</div>
-		</div>
-		<div class="col-md-12 text-center py-2">
-		{% for menu in menuMethode %}
-			<h2 class="card-title">{% if menu.title == "Menu Plaisir" %}{{menu.title}}{% endif %}</h2>
-		{% endfor %}
-		{% for formula in formulaMethode %}
-			<p class="card-text">
-				{% if formula.title == "Formule déjeuner" %} <h5> {{formula.title}} 25€</h5>{% endif %}
-		{% endfor %}
-		<div>Poisson, purée de patate douce</div>
-		<div>Tiramisu</div>
-		{% for formula in formulaMethode %}
-				{% if formula.title == "Formule diner" %} <h5> {{formula.title}} 30€</h5>{% endif %}
-			</p>
-		{% endfor %}
-			<div>Entrecôte, risotto aux cèpes</div>
-			<div>Fondant au chocolat</div>
-		</div>
-	</div>
+		</section>
+		<!-- Menu 2 -->
+		<section class="col-md-12 text-center py-2">
+            {% for menu in menuMethode %}
+                <h2 class="card-title">{% if menu.title == "Menu Plaisir" %}{{menu.title}}{% endif %}</h2>
+            {% endfor %}
+            {% for formula in formulaMethode %}
+                <p class="card-text">
+                    {% if formula.title == "Formule déjeuner" %} <h5> {{formula.title}} 25€</h5>{% endif %}
+            {% endfor %}
+            <div>Poisson, purée de patate douce</div>
+            <div>Tiramisu</div>
+            {% for formula in formulaMethode %}
+                    {% if formula.title == "Formule diner" %} <h5> {{formula.title}} 30€</h5>{% endif %}
+                </p>
+            {% endfor %}
+                <div>Entrecôte, risotto aux cèpes</div>
+                <div>Fondant au chocolat</div>
+		</section>
+	</article>
 </main>			
 {% endblock %}
 

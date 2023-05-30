@@ -18,5 +18,4 @@ class MainController extends AbstractController
             'mealMethode'=>$mealRepository->findAll()
         ]);
     }
-  
 }

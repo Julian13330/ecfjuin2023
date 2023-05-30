@@ -4,7 +4,7 @@
 
 {% block body %}
 <main class="container full-width">
-    <div>
+    <article>
         <div class="button-list mt-5 mb-4 w-100 d-flex justify-content-evenly">
             <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="all" >tout</button>
             <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="entree">Les entrées</button>
@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-outline btn-filter" id="myButton" data-filter="desserts">Les desserts</button>
         </div>
         {# Affichage des entrées #}
-        <div class="categorie-section" data-category="entree">
+        <section class="categorie-section" data-category="entree">
             <h1>Les entrées</h1>
             <div class="row row-cols-1">
                 <div class="d-flex justify-content-center flex-column text-center">
@@ -31,9 +31,9 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
+        </section>
         {# Affichage des plats mers #}
-        <div class="categorie-section" data-category="plats mer">
+        <section class="categorie-section" data-category="plats mer">
             <h1>Les plats mer</h1>
             <div class="row row-cols-1">
                 <div class="d-flex justify-content-center flex-column text-center">
@@ -51,9 +51,9 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
+        </section>
         {# Affichage des plats terre #}
-        <div class="categorie-section" data-category="plats terre">
+        <section class="categorie-section" data-category="plats terre">
             <h1>Les plats terre</h1>
             <div class="row row-cols-1">
                 <div class="d-flex justify-content-center flex-column text-center">
@@ -71,10 +71,10 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
+        </section>
         {# Affichage des desserts #}
-        <div class="categorie-section" data-category="desserts">
-            <h1>Les Desserts</h1>
+        <section class="categorie-section" data-category="desserts">
+            <h1>Les desserts</h1>
             <div class="row row-cols-1">
                 <div class="d-flex justify-content-center flex-column text-center">
                     {% for meal in mealMethode %}
@@ -91,7 +91,7 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </article>
 </main>
 {% endblock %}

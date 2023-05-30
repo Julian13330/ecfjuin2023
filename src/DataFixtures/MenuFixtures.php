@@ -13,13 +13,13 @@ class MenuFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-         $moussaillon = new Menu();
-         $moussaillon->setTitle('Menu Moussaillon -10 ans');
-         $manager->persist($moussaillon);
+        $moussaillon = new Menu();
+        $moussaillon->setTitle('Menu Moussaillon -10 ans');
+        $manager->persist($moussaillon);
 
-         $plaisir = new Menu();
-         $plaisir->setTitle('Menu Plaisir');
-         $manager->persist($plaisir);
+        $plaisir = new Menu();
+        $plaisir->setTitle('Menu Plaisir');
+        $manager->persist($plaisir);
 
         $manager->flush();
 
