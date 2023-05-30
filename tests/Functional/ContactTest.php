@@ -23,7 +23,7 @@ class ContactTest extends WebTestCase
         $form["registration_form_lastname"] = "Bond";
         $form["registration_form_firstname"] = "James";
         $form["registration_form[email]"] = "jamedu13@test.com";
-        $form["registration_form[userguest]"] = 2;
+        //$form["registration_form[userguest]"] = 2;
 
         // Soumettre le formulaire
         $client->submit($form);
@@ -31,9 +31,10 @@ class ContactTest extends WebTestCase
         // Vérifier le stat HTTP
         $this->assertResponseStatusCodeSame(Response::HTTP_FOUND);
 
-        $client->followRedirect();
-
         // Vérifier l'envoie du mail
+        $this->assertEmailCount(1);
+
+        $client->followRedirect();
 
         // Vérifier la présence du message de succès.
         $this->assertSelectorTextContains(
