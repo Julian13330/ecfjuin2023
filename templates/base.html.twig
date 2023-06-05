@@ -9,7 +9,7 @@
 		
 
 			<!-- Feuilles de styles -->
-        {% block stylesheets %}
+    {% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 			{{ encore_entry_link_tags('app') }}
@@ -23,23 +23,23 @@
 		
 	</head>
 	<body>
-			<header>
-        {% include "_partials/_nav.html.twig" %}
-				<!-- Permet les messages de succès lors d'interaction avec la bdd -->
-				{% for message in app.flashes('success') %}
-					<div class="alert alert-success">
-						{{ message }}
-					</div>
-				{% endfor %}
-				{% include "_partials/_photoSite.html.twig" %}
-			</header>
-				<!-- Permet les messages de succès lors d'interaction avec la bdd -->
-				{% for message in app.flashes('success') %}
-					<div class="alert alert-success">
-						{{ message }}
-					</div>
-				{% endfor %}
+	<header>
+		{% include "_partials/_nav.html.twig" %}
+		<!-- Permet les messages de succès lors d'interaction avec la bdd -->
+		{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+		{% endfor %}
+		{% include "_partials/_photoSite.html.twig" %}
+	</header>
+		<!-- Permet les messages de succès lors d'interaction avec la bdd -->
+		{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+		{% endfor %}
 		{% block body %}{% endblock %}
         {% include "_partials/_footer.html.twig" %}
-	</body>
+    </body>
 </html>

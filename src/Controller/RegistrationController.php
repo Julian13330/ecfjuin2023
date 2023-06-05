@@ -41,19 +41,19 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             //Email
-            $email = (new TemplatedEmail())
-            ->from($user->getEmail())
-            ->to('admin@restauranttest.com')
-            ->subject('Vous êtes bien inscrit')
-            ->text('Sending emails is fun again!')
-            ->htmlTemplate('emails/contact.html.twig')
+            //$email = (new TemplatedEmail())
+            //->from($user->getEmail())
+            //->to('admin@restauranttest.com')
+            //->subject('Vous êtes bien inscrit')
+            //->text('Sending emails is fun again!')
+            //->htmlTemplate('emails/contact.html.twig')
 
             // pass variables (name => value) to the template
-            ->context([
-                'users' => $user
-            ]);
+            //->context([
+              //  'users' => $user
+            //]);
 
-            $mailer->send($email);
+            //$mailer->send($email);
 
             $this->addFlash('success', 'Inscription effectuée avec succès');
             // do anything else you need here, like send an email

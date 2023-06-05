@@ -41,7 +41,7 @@ class ReservationController extends AbstractController
         $reservation->setHour(new \DateTime());// Ajout de la date au formulaire
         
          // Récupère les préférences de l'utilisateur qui est authentifié
-         if($this->isGranted('IS_AUTHENTICATED_FULLY') || $this->isGranted('ROLE_ADMIN')){
+        if($this->isGranted('IS_AUTHENTICATED_FULLY') || $this->isGranted('ROLE_ADMIN')){
             $user = $security->getUser();
             $allergieUser = $user->getAllergie();
             $nameUser = $user->getLastname();
@@ -51,17 +51,17 @@ class ReservationController extends AbstractController
             // Utilisation de intval() car message d'erreur
             $reservation->setMealAllergy($allergieUser);
             $reservation->setName($nameUser);
-         }
+        }
 
         // Création du formulaire
         $formResa = $this->createForm(ReservationFormType::class, $reservation);
 
-         // Recuperation des données du formulaire
-         $formResa->handleRequest($request);
-         $data = $formResa->getData();
-         $reservationTime = $data->getTime();
-         $reservationHour = $data->getHour();
-         $nbrCouvertSelectionne = $data->getnbrGuest();
+        // Recuperation des données du formulaire
+        $formResa->handleRequest($request);
+        $data = $formResa->getData();
+        $reservationTime = $data->getTime();
+        $reservationHour = $data->getHour();
+        $nbrCouvertSelectionne = $data->getnbrGuest();
 
          // Formatage de la date et l'heure pour qu'elle puisse être passée au custom QueryBuilder countNbrCouvertForDate()
         $reservationTime = $reservationTime->format('Y-m-d');
