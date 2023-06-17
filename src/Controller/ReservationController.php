@@ -37,7 +37,7 @@ class ReservationController extends AbstractController
 
         // Création de la nouvelle instance Rerservation
         $reservation = new Reservation();
-        $reservation->setTime(new \DateTime("z")); // Ajout de la date au formulaire
+        $reservation->setTime(new \DateTime()); // Ajout de la date au formulaire
         $reservation->setHour(new \DateTime());// Ajout de la date au formulaire
         
          // Récupère les préférences de l'utilisateur qui est authentifié
@@ -64,7 +64,7 @@ class ReservationController extends AbstractController
         $nbrCouvertSelectionne = $data->getnbrGuest();
 
          // Formatage de la date et l'heure pour qu'elle puisse être passée au custom QueryBuilder countNbrCouvertForDate()
-        $reservationTime = $reservationTime->format('Y-m-d');
+        $reservationTime = $reservationTime->format('Y-m-d H:i:s');
         $reservationHour = $reservationHour->format('H:m:s');
 
         // Recuperation du nombre d'invités le midi
