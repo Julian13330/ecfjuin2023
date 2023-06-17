@@ -37,7 +37,7 @@ class ReservationController extends AbstractController
 
         // Création de la nouvelle instance Rerservation
         $reservation = new Reservation();
-        $reservation->setTime(new \DateTime()); // Ajout de la date au formulaire
+        $reservation->setTime(new \DateTime("z")); // Ajout de la date au formulaire
         $reservation->setHour(new \DateTime());// Ajout de la date au formulaire
         
          // Récupère les préférences de l'utilisateur qui est authentifié
