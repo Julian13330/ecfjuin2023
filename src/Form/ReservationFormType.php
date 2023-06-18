@@ -23,7 +23,6 @@ class ReservationFormType extends AbstractType
             ->add('name',TextType::class, ['label' => 'Nom de la réservation'])
             ->add('time',DateType::class, [
                     'label' => 'Date',
-                    'model_timezone' => 'Europe/Paris',
                     'data' => new \DateTime(),
                     'widget' => 'single_text'
             ])
