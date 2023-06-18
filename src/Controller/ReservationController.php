@@ -64,8 +64,8 @@ class ReservationController extends AbstractController
         $nbrCouvertSelectionne = $data->getnbrGuest();
 
          // Formatage de la date et l'heure pour qu'elle puisse être passée au custom QueryBuilder countNbrCouvertForDate()
-        $reservationTime = $reservationTime->format('yyyy-MM-dd 00:00:00');
-        $reservationHour = $reservationHour->format('HH:mm:ss');
+        $reservationTime = $reservationTime->format('Y-m-d');
+        $reservationHour = $reservationHour->format('H:m:s');
 
         // Recuperation du nombre d'invités le midi
         $nbrCouvertMidi = $reservationRepository->countNbrCouvertDateMidi($reservationTime, $reservationHour );
