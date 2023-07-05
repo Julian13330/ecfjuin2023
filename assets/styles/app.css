@@ -164,7 +164,19 @@ a{
     height: 426px;
     width: 640px;
   }
-  
+
+  /* Photos des plats dans le côté admin*/
+  .photoPlatAdmin{
+    height: 213px;
+    width: 320px;
+  }
+
+  @media screen and (max-width: 560px){
+  .photoPlatAdmin {
+    height: 106px;
+    width: 160px;
+  }
+}
 
 /*@media screen and (max-width: 860px) {
   .img-card {

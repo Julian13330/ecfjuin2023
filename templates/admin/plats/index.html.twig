@@ -9,30 +9,30 @@
         <tbody>
             {% for meal in mealMethode %}
                 {% if meal.category.title == "Les entrées" %}
-                    <tr>
-                        <td>
-                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
-                        </td>
-                        <td>
-                            <p>{{ meal.category.title }}</p>
-                            <strong>{{ meal.title }}</strong>
-                            <p>{{ meal.description }}</p>
-                        </td>
-                        <td class="number"><strong>
-                            {{ meal.price | number_format(2, ',', ' ') }} €</strong>
-                        </td>
-                        <td>
-                            <a href="/admin/plats/{{meal.id}}"><button class="btn" id="myButton"> Modifier </button></a>
-                        </td>
-                        <td>
-                            <a href="{{ path('admin_plats_delete', {id: meal.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ meal.id) }}" class="btn btn-warning" id="myButtonDelete">Supprimer</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                <img class="photoPlatAdmin" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
+                            </td>
+                            <td>
+                                <p>{{ meal.category.title }}</p>
+                                <strong>{{ meal.title }}</strong>
+                                <p>{{ meal.description }}</p>
+                            </td>
+                            <td class="number"><strong>
+                                {{ meal.price | number_format(2, ',', ' ') }} €</strong>
+                            </td>
+                            <td>
+                                <a href="/admin/plats/{{meal.id}}"><button class="btn" id="myButton"> Modifier </button></a>
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_plats_delete', {id: meal.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ meal.id) }}" class="btn btn-warning" id="myButtonDelete">Supprimer</a>
+                            </td>
+                        </tr>
                 {% endif %}
                 {% if meal.category.title == "Les plats mer" %}
                     <tr>
                         <td>
-                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
+                            <img class="photoPlatAdmin" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
                         </td>
                         <td>
                             <p>{{ meal.category.title }}</p>
@@ -53,7 +53,7 @@
                 {% if meal.category.title == "Les plats terre" %}
                     <tr>
                         <td>
-                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
+                            <img class="photoPlatAdmin" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
                         </td>
                         <td>
                             <p>{{ meal.category.title }}</p>
@@ -74,7 +74,7 @@
                 {% if meal.category.title == "Les desserts" %}
                     <tr>
                         <td>
-                            <img class="photoPlat" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
+                            <img class="photoPlatAdmin" src="{{ vich_uploader_asset(meal, 'imageFile') }}"alt="{{ asset(meal.title) }}">
                         </td>
                         <td>
                             <p>{{ meal.category.title }}</p>
